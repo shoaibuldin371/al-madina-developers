@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { siteData } from "@/data/siteData";
 import { motion } from "framer-motion";
+import { PrismaticBurst } from "@/components/PrismaticBurst";
 
 export default function Hero() {
   const { hero, contact } = siteData;
@@ -25,29 +26,23 @@ export default function Hero() {
 
   return (
     <section id="home" className="relative w-full h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden bg-navy">
-      {/* Background Image */}
-      <motion.div 
-        className="absolute inset-0 w-full h-full z-0"
-        initial={{ scale: 1.1 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 10, ease: "easeOut" }}
-      >
-        <Image
-          src={hero.image}
-          alt="Al-Madina Developers"
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
+      {/* WebGL Prismatic Burst Background */}
+      <div className="absolute inset-0 w-full h-full z-0 opacity-80">
+        <PrismaticBurst
+          animationType="rotate3d"
+          intensity={2.5}
+          speed={0.4}
+          distort={1.2}
+          paused={false}
+          offset={{ x: 0, y: 0 }}
+          hoverDampness={0.25}
+          rayCount={32}
+          mixBlendMode="normal"
+          colors={['#0a1128', '#d4af37', '#ffffff', '#1a2238']}
         />
-        {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/40"></div>
-        <div className="absolute inset-0 bg-black/20"></div>
-      </motion.div>
-
-      {/* Decorative Orbs */}
-      <div className="blob bg-gold w-[400px] h-[400px] rounded-full top-[-100px] right-[-100px] blur-[80px] opacity-20 pointer-events-none"></div>
-      <div className="blob bg-white w-[300px] h-[300px] rounded-full bottom-[-50px] left-[20%] blur-[80px] opacity-10 pointer-events-none" style={{ animationDelay: '2s' }}></div>
+        {/* Subtle overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/60 to-transparent pointer-events-none"></div>
+      </div>
 
       <div className="container relative z-10 mx-auto px-4 max-w-7xl">
         <motion.div 
