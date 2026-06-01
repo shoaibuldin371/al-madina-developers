@@ -2,6 +2,10 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { siteData } from "@/data/siteData";
 import { PHProvider } from "./providers";
+import TopContactBar from "@/components/TopContactBar";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import FloatingContact from "@/components/FloatingContact";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
@@ -40,7 +44,7 @@ const jsonLd = {
   "@type": "RealEstateAgent",
   "name": "Al Madina Developers",
   "image": "https://al-madina-developers.vercel.app/assets/al-madinah/logo.jpg",
-  "telephone": "0300 4873647",
+  "telephone": "0300 1332279",
   "email": "almadinaaestate@gmail.com",
   "address": {
     "@type": "PostalAddress",
@@ -66,7 +70,15 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-slate-50 text-slate-900`}>
         <PHProvider>
-          {children}
+          <div className="min-h-screen flex flex-col">
+            <TopContactBar />
+            <Navbar />
+            <div className="flex-grow">
+              {children}
+            </div>
+            <Footer />
+            <FloatingContact />
+          </div>
         </PHProvider>
       </body>
     </html>

@@ -5,7 +5,8 @@ import { PhoneIcon } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
 import { usePostHog } from 'posthog-js/react';
 
-export default function FeaturedProperties() {
+export default function FeaturedProperties({ limit }) {
+  const properties = limit ? siteData.featuredProperties.slice(0, limit) : siteData.featuredProperties;
   const { featuredProperties, contact } = siteData;
   const posthog = usePostHog();
 
@@ -25,7 +26,7 @@ export default function FeaturedProperties() {
   };
 
   return (
-    <section id="properties" className="py-20 md:py-28 bg-gray-50 overflow-hidden">
+    <section className="py-20 md:py-28 bg-gray-50 overflow-hidden relative">
       <div className="container mx-auto px-4 max-w-7xl">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
@@ -48,7 +49,7 @@ export default function FeaturedProperties() {
           <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            href="https://wa.me/923004873647?text=Hello%20Al%20Madina%20Developers%2C%20I%20am%20interested%20in%20your%20property%20services.%20Please%20share%20more%20details."
+            href="https://wa.me/923001332279?text=Hello%20Al%20Madina%20Developers%2C%20I%20am%20interested%20in%20your%20property%20services.%20Please%20share%20more%20details."
             target="_blank"
             rel="noreferrer"
             onClick={() => posthog?.capture('cta_clicked', { button_location: 'featured_properties', brand_name: 'Al Madina Developers' })}
@@ -83,7 +84,7 @@ export default function FeaturedProperties() {
           viewport={{ once: true, margin: "-50px" }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {featuredProperties.map((property) => (
+          {properties.map((property) => (
             <motion.div 
               variants={itemVariants}
               key={property.id} 
@@ -122,7 +123,7 @@ export default function FeaturedProperties() {
                   <div className="flex space-x-2">
                     <motion.a
                       whileHover={{ scale: 1.1, backgroundColor: "#D4AF37", color: "white" }}
-                      href="tel:+923004873647"
+                      href="tel:+923001332279"
                       onClick={(e) => {
                         e.stopPropagation();
                         posthog?.capture('call_clicked', { button_location: 'property_card', property_title: property.title, brand_name: 'Al Madina Developers' });
@@ -135,7 +136,7 @@ export default function FeaturedProperties() {
                     </motion.a>
                     <motion.a
                       whileHover={{ scale: 1.1, backgroundColor: "#25D366", color: "white" }}
-                      href="https://wa.me/923004873647?text=Hello%20Al%20Madina%20Developers%2C%20I%20am%20interested%20in%20your%20property%20services.%20Please%20share%20more%20details."
+                      href="https://wa.me/923001332279?text=Hello%20Al%20Madina%20Developers%2C%20I%20am%20interested%20in%20your%20property%20services.%20Please%20share%20more%20details."
                       target="_blank"
                       rel="noreferrer"
                       onClick={(e) => {

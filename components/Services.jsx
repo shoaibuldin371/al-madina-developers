@@ -46,7 +46,7 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="py-20 md:py-28 bg-gray-50 overflow-hidden relative">
+    <section className="py-20 md:py-28 bg-gray-50 overflow-hidden relative">
       {/* Decorative Orbs */}
       <div className="absolute top-20 right-0 w-64 h-64 bg-gold rounded-full opacity-5 blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-20 left-0 w-96 h-96 bg-navy rounded-full opacity-5 blur-3xl pointer-events-none"></div>

@@ -33,7 +33,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-28 bg-gray-50 border-t border-gray-100 relative overflow-hidden">
+    <section className="py-20 md:py-28 bg-gray-50 border-t border-gray-100 relative overflow-hidden">
       <div className="absolute top-0 right-1/3 w-64 h-64 bg-gold rounded-full opacity-5 blur-3xl pointer-events-none"></div>
       
       <div className="container mx-auto px-4 max-w-7xl relative z-10">
@@ -145,8 +145,8 @@ export default function Contact() {
 
             <div className="space-y-4 flex-grow relative z-10">
               <a
-                href="tel:+923004873647"
-                onClick={() => posthog?.capture('call_clicked', { button_location: 'contact_section', contact_number: '+923004873647', brand_name: 'Al Madina Developers' })}
+                href="tel:+923001332279"
+                onClick={() => posthog?.capture('call_clicked', { button_location: 'contact_section', contact_number: '+923001332279', brand_name: 'Al Madina Developers' })}
                 aria-label="Call Now"
                 className="flex items-center w-full p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-colors group"
               >
@@ -160,10 +160,10 @@ export default function Contact() {
               </a>
 
               <a
-                href="https://wa.me/923004873647?text=Hello%20Al%20Madina%20Developers%2C%20I%20am%20interested%20in%20your%20property%20services.%20Please%20share%20more%20details."
+                href="https://wa.me/923001332279?text=Hello%20Al%20Madina%20Developers%2C%20I%20am%20interested%20in%20your%20property%20services.%20Please%20share%20more%20details."
                 target="_blank"
                 rel="noreferrer"
-                onClick={() => posthog?.capture('whatsapp_clicked', { button_location: 'contact_section_main', contact_number: '+923004873647', brand_name: 'Al Madina Developers' })}
+                onClick={() => posthog?.capture('whatsapp_clicked', { button_location: 'contact_section_main', contact_number: '+923001332279', brand_name: 'Al Madina Developers' })}
                 aria-label="Contact via WhatsApp"
                 className="flex items-center w-full p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-[#25D366]/20 transition-colors group"
               >
@@ -175,23 +175,6 @@ export default function Contact() {
                 <div>
                   <p className="text-xs text-gray-400 uppercase tracking-wide">Main WhatsApp</p>
                   <p className="font-bold text-lg">{contact.primaryWhatsApp}</p>
-                </div>
-              </a>
-
-              <a
-                href={contact.persons[0].whatsappLink}
-                target="_blank"
-                rel="noreferrer"
-                onClick={() => posthog?.capture('whatsapp_clicked', { button_location: 'contact_section_bilal', contact_number: contact.persons[0].phone, brand_name: 'Al Madina Developers' })}
-                aria-label="Contact M. Bilal via WhatsApp"
-                className="flex items-center w-full p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-[#25D366]/20 transition-colors group"
-              >
-                <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mr-4 group-hover:bg-white/20 transition-colors text-xs font-bold">
-                  MB
-                </div>
-                <div>
-                  <p className="text-xs text-gray-400 uppercase tracking-wide">M. Bilal</p>
-                  <p className="font-bold text-lg">{contact.persons[0].phone}</p>
                 </div>
               </a>
               

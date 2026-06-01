@@ -82,7 +82,7 @@ export default function InstallmentPlans() {
                   {plan.details}
                 </p>
                 <a
-                  href="https://wa.me/923004873647?text=Hello%20Al%20Madina%20Developers%2C%20I%20am%20interested%20in%20your%20property%20services.%20Please%20share%20more%20details."
+                  href="https://wa.me/923001332279?text=Hello%20Al%20Madina%20Developers%2C%20I%20am%20interested%20in%20your%20property%20services.%20Please%20share%20more%20details."
                   target="_blank"
                   rel="noreferrer"
                   onClick={() => posthog?.capture('whatsapp_clicked', { button_location: 'installment_plans', plan_title: plan.title, brand_name: 'Al Madina Developers' })}

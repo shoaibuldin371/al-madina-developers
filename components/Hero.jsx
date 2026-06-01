@@ -91,10 +91,10 @@ export default function Hero() {
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="https://wa.me/923004873647?text=Hello%20Al%20Madina%20Developers%2C%20I%20am%20interested%20in%20your%20property%20services.%20Please%20share%20more%20details."
+              href="https://wa.me/923001332279?text=Hello%20Al%20Madina%20Developers%2C%20I%20am%20interested%20in%20your%20property%20services.%20Please%20share%20more%20details."
               target="_blank"
               rel="noreferrer"
-              onClick={() => posthog?.capture('whatsapp_clicked', { button_location: 'hero', contact_number: '+923004873647', brand_name: 'Al Madina Developers' })}
+              onClick={() => posthog?.capture('whatsapp_clicked', { button_location: 'hero', contact_number: '+923001332279', brand_name: 'Al Madina Developers' })}
               aria-label="Contact via WhatsApp"
               className="px-8 py-4 bg-white/10 text-white text-center font-semibold rounded-md glass hover:bg-white/20 transition-all hover-lift"
             >
@@ -103,8 +103,8 @@ export default function Hero() {
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="tel:+923004873647"
-              onClick={() => posthog?.capture('call_clicked', { button_location: 'hero', contact_number: '+923004873647', brand_name: 'Al Madina Developers' })}
+              href="tel:+923001332279"
+              onClick={() => posthog?.capture('call_clicked', { button_location: 'hero', contact_number: '+923001332279', brand_name: 'Al Madina Developers' })}
               aria-label="Call Consultant"
               className="px-8 py-4 bg-transparent text-white text-center font-semibold rounded-md border border-white/50 hover:bg-white hover:text-navy transition-all hover-lift"
             >
