@@ -6,6 +6,7 @@ import TopContactBar from "@/components/TopContactBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingContact from "@/components/FloatingContact";
+import HashScrollHandler from "@/components/HashScrollHandler";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
@@ -70,6 +71,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-slate-50 text-slate-900`}>
         <PHProvider>
+          <HashScrollHandler />
           <div className="min-h-screen flex flex-col">
             <TopContactBar />
             <Navbar />

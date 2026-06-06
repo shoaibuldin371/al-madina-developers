@@ -1,13 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
 import { siteData } from "@/data/siteData";
 import { PhoneIcon, EnvelopeIcon, MapPinIcon } from "@heroicons/react/24/outline";
 
 export default function Footer() {
   const { company, contact, services } = siteData;
-
-  const currentYear = new Date().getFullYear();
-  // Use requested year if it's past 2026 or just use 2026 as requested in prompt "© 2026 Al Madina Developers..."
   const displayYear = "2026";
 
   return (
@@ -17,7 +13,7 @@ export default function Footer() {
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gold/5 rounded-full blur-3xl translate-y-1/2 translate-x-1/3"></div>
 
       <div className="container mx-auto px-4 max-w-7xl relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-16">
           {/* Brand & About */}
           <div className="space-y-6">
             <div className="flex items-center space-x-3 mb-6">
@@ -61,34 +57,34 @@ export default function Footer() {
             <h4 className="text-white font-bold mb-6 text-lg">Quick Links</h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <Link href="#home" className="hover:text-gold transition-colors inline-flex items-center">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gold mr-2"></span> Home
-                </Link>
+                <a href="https://al-madina-developers.vercel.app/#home" target="_blank" rel="noopener noreferrer" className="hover:text-gold hover:translate-x-1 transition-all duration-300 inline-flex items-center group">
+                  <span className="w-1.5 h-1.5 rounded-full bg-gold mr-2 group-hover:bg-gold transition-colors"></span> Home
+                </a>
               </li>
               <li>
-                <Link href="#about" className="hover:text-gold transition-colors inline-flex items-center">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gold mr-2"></span> About Us
-                </Link>
+                <a href="https://al-madina-developers.vercel.app/#about" target="_blank" rel="noopener noreferrer" className="hover:text-gold hover:translate-x-1 transition-all duration-300 inline-flex items-center group">
+                  <span className="w-1.5 h-1.5 rounded-full bg-gold mr-2 group-hover:bg-gold transition-colors"></span> About Us
+                </a>
               </li>
               <li>
-                <Link href="#services" className="hover:text-gold transition-colors inline-flex items-center">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gold mr-2"></span> Services
-                </Link>
+                <a href="https://al-madina-developers.vercel.app/#services" target="_blank" rel="noopener noreferrer" className="hover:text-gold hover:translate-x-1 transition-all duration-300 inline-flex items-center group">
+                  <span className="w-1.5 h-1.5 rounded-full bg-gold mr-2 group-hover:bg-gold transition-colors"></span> Services
+                </a>
               </li>
               <li>
-                <Link href="#properties" className="hover:text-gold transition-colors inline-flex items-center">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gold mr-2"></span> Featured Properties
-                </Link>
+                <a href="https://al-madina-developers.vercel.app/#properties" target="_blank" rel="noopener noreferrer" className="hover:text-gold hover:translate-x-1 transition-all duration-300 inline-flex items-center group">
+                  <span className="w-1.5 h-1.5 rounded-full bg-gold mr-2 group-hover:bg-gold transition-colors"></span> Featured Properties
+                </a>
               </li>
               <li>
-                <Link href="#plans" className="hover:text-gold transition-colors inline-flex items-center">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gold mr-2"></span> Installment Plans
-                </Link>
+                <a href="https://al-madina-developers.vercel.app/#plans" target="_blank" rel="noopener noreferrer" className="hover:text-gold hover:translate-x-1 transition-all duration-300 inline-flex items-center group">
+                  <span className="w-1.5 h-1.5 rounded-full bg-gold mr-2 group-hover:bg-gold transition-colors"></span> Installment Plans
+                </a>
               </li>
               <li>
-                <Link href="#gallery" className="hover:text-gold transition-colors inline-flex items-center">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gold mr-2"></span> Gallery
-                </Link>
+                <a href="https://al-madina-developers.vercel.app/#gallery" target="_blank" rel="noopener noreferrer" className="hover:text-gold hover:translate-x-1 transition-all duration-300 inline-flex items-center group">
+                  <span className="w-1.5 h-1.5 rounded-full bg-gold mr-2 group-hover:bg-gold transition-colors"></span> Gallery
+                </a>
               </li>
             </ul>
           </div>
@@ -98,10 +94,15 @@ export default function Footer() {
             <h4 className="text-white font-bold mb-6 text-lg">Our Services</h4>
             <ul className="space-y-3 text-sm">
               {services.slice(0, 6).map((service) => (
-                <li key={service.id} className="group">
-                  <Link href="#services" className="hover:text-white transition-colors inline-flex items-center">
+                <li key={service.id}>
+                  <a 
+                    href={`https://al-madina-developers.vercel.app/#${service.id}`} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="hover:text-gold hover:translate-x-1 transition-all duration-300 inline-flex items-center group"
+                  >
                     <span className="w-1.5 h-1.5 rounded-full bg-white/30 mr-2 group-hover:bg-gold transition-colors"></span> {service.title}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -113,18 +114,25 @@ export default function Footer() {
             <ul className="space-y-4 text-sm">
               <li className="flex items-start">
                 <MapPinIcon className="w-5 h-5 text-gold mr-3 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-400">{contact.officeLocation}</span>
+                <a 
+                  href="https://al-madina-developers.vercel.app/#contact" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors leading-relaxed"
+                >
+                  {contact.officeLocation}
+                </a>
               </li>
               <li className="flex items-center">
                 <PhoneIcon className="w-5 h-5 text-gold mr-3 flex-shrink-0" />
-                <a href={`tel:${contact.primaryNumber.replace(/\s+/g, "")}`} className="text-gray-400 hover:text-white transition-colors">
-                  {contact.primaryNumber}
+                <a href="tel:03001332279" className="text-gray-400 hover:text-white transition-colors">
+                  03001332279
                 </a>
               </li>
               <li className="flex items-center">
                 <EnvelopeIcon className="w-5 h-5 text-gold mr-3 flex-shrink-0" />
-                <a href={`mailto:${contact.email}`} className="text-gray-400 hover:text-white transition-colors break-all">
-                  {contact.email}
+                <a href="mailto:almadinaaestate@gmail.com" className="text-gray-400 hover:text-white transition-colors break-all">
+                  almadinaaestate@gmail.com
                 </a>
               </li>
             </ul>
@@ -132,9 +140,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom Copyright */}
-        <div className="py-6 border-t border-white/10 text-center text-sm text-gray-500 flex flex-col md:flex-row justify-between items-center">
-          <p className="mb-2 md:mb-0">© {displayYear} {company.name}. All Rights Reserved.</p>
-          <p>Designed with <span className="text-gold">♥</span> for Premium Living</p>
+        <div className="py-6 border-t border-white/10 text-center text-sm text-gray-500 flex justify-center items-center">
+          <p>© {displayYear} {company.name}. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

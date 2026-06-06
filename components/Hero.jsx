@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { siteData } from "@/data/siteData";
 import { motion } from "framer-motion";
-import { PrismaticBurst } from "@/components/PrismaticBurst";
 import { usePostHog } from 'posthog-js/react';
 
 export default function Hero() {
@@ -28,20 +27,16 @@ export default function Hero() {
 
   return (
     <section id="home" className="relative w-full h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden bg-navy">
-      {/* WebGL Prismatic Burst Background */}
-      <div className="absolute inset-0 w-full h-full z-0 opacity-80">
-        <PrismaticBurst
-          animationType="rotate3d"
-          intensity={2.5}
-          speed={0.4}
-          distort={1.2}
-          paused={false}
-          offset={{ x: 0, y: 0 }}
-          hoverDampness={0.25}
-          rayCount={32}
-          mixBlendMode="normal"
-          colors={['#0a1128', '#d4af37', '#ffffff', '#1a2238']}
-        />
+      {/* Premium CSS Gradient & Motion Blob Background */}
+      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden bg-navy bg-gradient-to-br from-[#0F172A] via-[#0a0f1d] to-[#1E293B]">
+        {/* Subtle decorative grid overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+        
+        {/* Light-weight CSS blobs */}
+        <div className="absolute top-[20%] left-[10%] w-[350px] h-[350px] bg-gold/10 rounded-full filter blur-[80px] animate-blob"></div>
+        <div className="absolute bottom-[10%] right-[15%] w-[400px] h-[400px] bg-[#1E3A8A]/20 rounded-full filter blur-[100px] animate-blob" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-[50%] right-[30%] w-[250px] h-[250px] bg-[#0284C7]/15 rounded-full filter blur-[60px] animate-blob" style={{ animationDelay: '4s' }}></div>
+        
         {/* Subtle overlay to ensure text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/60 to-transparent pointer-events-none"></div>
       </div>
@@ -81,8 +76,12 @@ export default function Hero() {
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="#properties"
-              onClick={() => posthog?.capture('cta_clicked', { button_location: 'hero', brand_name: 'Al Madina Developers' })}
+              href="https://al-madina-developers.vercel.app/#properties"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => {
+                posthog?.capture('cta_clicked', { button_location: 'hero', brand_name: 'Al Madina Developers' });
+              }}
               aria-label="Explore Properties"
               className="px-8 py-4 bg-gradient-gold text-white text-center font-semibold rounded-md shadow-lg shadow-gold/20 hover-lift"
             >
@@ -113,7 +112,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.div 
-            variants={itemVariants}
+            motion-variants={itemVariants}
             className="pt-8 border-t border-white/20"
           >
             <p className="text-sm text-gray-300 mb-4 uppercase tracking-wider font-semibold">

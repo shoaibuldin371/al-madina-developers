@@ -1,11 +1,22 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { siteData } from "@/data/siteData";
 import { Bars3Icon, XMarkIcon, PhoneIcon } from "@heroicons/react/24/outline";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePostHog } from 'posthog-js/react';
+
+const siteUrl = "https://al-madina-developers.vercel.app";
+
+const sectionLinks = {
+  home: `${siteUrl}/#home`,
+  about: `${siteUrl}/#about`,
+  services: `${siteUrl}/#services`,
+  properties: `${siteUrl}/#properties`,
+  plans: `${siteUrl}/#plans`,
+  gallery: `${siteUrl}/#gallery`,
+  contact: `${siteUrl}/#contact`,
+};
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -22,11 +33,11 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Projects", href: "/projects" },
-    { name: "Gallery", href: "/gallery" },
-    { name: "Contact", href: "/contact" },
+    { name: "Home", href: sectionLinks.home },
+    { name: "About", href: sectionLinks.about },
+    { name: "Projects", href: sectionLinks.properties },
+    { name: "Gallery", href: sectionLinks.gallery },
+    { name: "Contact", href: sectionLinks.contact },
   ];
 
   return (
@@ -40,8 +51,13 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 max-w-7xl flex items-center justify-between">
         {/* Logo and Brand */}
-        <div className="flex items-center space-x-3">
-          <div className="relative w-12 h-12 md:w-14 md:h-14 overflow-hidden rounded-full border-2 border-gold flex-shrink-0 shadow-sm">
+        <a 
+          href={sectionLinks.home}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center space-x-3 group cursor-pointer"
+        >
+          <div className="relative w-12 h-12 md:w-14 md:h-14 overflow-hidden rounded-full border-2 border-gold flex-shrink-0 shadow-sm group-hover:scale-105 transition-transform duration-300">
             <Image
               src={company.logo}
               alt={company.name}
@@ -52,24 +68,25 @@ export default function Navbar() {
             />
           </div>
           <div className="flex flex-col">
-            <span className="font-serif text-lg md:text-xl font-bold text-navy leading-tight">
+            <span className="font-serif text-lg md:text-xl font-bold text-navy leading-tight group-hover:text-gold transition-colors duration-300">
               Al Madina Developers
             </span>
-            
           </div>
-        </div>
+        </a>
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center space-x-6">
           {navLinks.map((link) => (
-            <Link
+            <a
               key={link.name}
               href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
               className="relative text-sm font-medium text-navy hover:text-gold transition-colors group"
             >
               {link.name}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all group-hover:w-full"></span>
-            </Link>
+            </a>
           ))}
         </nav>
 
@@ -134,13 +151,15 @@ export default function Navbar() {
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: index * 0.05 }}
                 >
-                  <Link
+                  <a
                     href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-base font-medium text-navy hover:text-gold block py-2 border-b border-gray-200/50"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {link.name}
-                  </Link>
+                  </a>
                 </motion.div>
               ))}
               <motion.div 

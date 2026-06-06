@@ -33,7 +33,7 @@ export default function Contact() {
   };
 
   return (
-    <section className="py-20 md:py-28 bg-gray-50 border-t border-gray-100 relative overflow-hidden">
+    <section id="contact" className="py-20 md:py-28 bg-gray-50 border-t border-gray-100 relative overflow-hidden">
       <div className="absolute top-0 right-1/3 w-64 h-64 bg-gold rounded-full opacity-5 blur-3xl pointer-events-none"></div>
       
       <div className="container mx-auto px-4 max-w-7xl relative z-10">

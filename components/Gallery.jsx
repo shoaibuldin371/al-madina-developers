@@ -25,7 +25,7 @@ export default function Gallery() {
   };
 
   return (
-    <section className="py-20 md:py-28 bg-navy text-white relative overflow-hidden">
+    <section id="gallery" className="py-20 md:py-28 bg-navy text-white relative overflow-hidden">
       {/* Decorative Orbs */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-gold rounded-full opacity-5 blur-[100px] pointer-events-none"></div>
       

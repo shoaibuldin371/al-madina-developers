@@ -26,7 +26,7 @@ export default function FeaturedProperties({ limit }) {
   };
 
   return (
-    <section className="py-20 md:py-28 bg-gray-50 overflow-hidden relative">
+    <section id="properties" className="py-20 md:py-28 bg-gray-50 overflow-hidden relative">
       <div className="container mx-auto px-4 max-w-7xl">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}

@@ -7,7 +7,7 @@ export default function About() {
   const { company, contact } = siteData;
 
   return (
-    <section className="py-20 md:py-28 bg-white overflow-hidden relative">
+    <section id="about" className="py-20 md:py-28 bg-white overflow-hidden relative">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-gold rounded-full opacity-5 blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-navy rounded-full opacity-5 blur-3xl pointer-events-none translate-y-1/2 -translate-x-1/3"></div>
