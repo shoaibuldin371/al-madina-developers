@@ -3,29 +3,31 @@ import { siteData } from "@/data/siteData";
 import { MapPinIcon, PhoneIcon, EnvelopeIcon, ChatBubbleLeftEllipsisIcon } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
 
-export default function Location() {
+export default function Location({ hideHeader = false }) {
   const { contact } = siteData;
 
   return (
     <section id="location" className="py-20 md:py-28 bg-white border-t border-gray-100">
       <div className="container mx-auto px-4 max-w-7xl">
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
-          className="text-center max-w-3xl mx-auto mb-16"
-        >
-          <span className="text-gold font-semibold uppercase tracking-wider text-sm mb-2 block">
-            Our Headquarters
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-navy mb-6">
-            Visit Our Office
-          </h2>
-          <p className="text-gray-600 text-lg">
-            We are conveniently located in Zaamin City, Lahore. Drop by for a cup of tea and a discussion about your property goals.
-          </p>
-        </motion.div>
+        {!hideHeader && (
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7 }}
+            className="text-center max-w-3xl mx-auto mb-16"
+          >
+            <span className="text-gold font-semibold uppercase tracking-wider text-sm mb-2 block">
+              Our Headquarters
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-navy mb-6">
+              Visit Our Office
+            </h2>
+            <p className="text-gray-600 text-lg">
+              We are conveniently located in Zaamin City, Lahore. Drop by for a cup of tea and a discussion about your property goals.
+            </p>
+          </motion.div>
+        )}
 
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
@@ -41,37 +43,59 @@ export default function Location() {
             <h3 className="text-2xl font-bold font-serif mb-8 text-gold relative z-10">Al Madina Developers</h3>
             
             <div className="space-y-8 relative z-10">
-              <div className="flex items-start">
-                <MapPinIcon className="w-6 h-6 text-gold mr-4 flex-shrink-0 mt-1" />
+              <a 
+                href={contact.googleMapsSearch}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-start group cursor-pointer"
+              >
+                <MapPinIcon className="w-6 h-6 text-gold group-hover:text-gold mr-4 flex-shrink-0 mt-1 transition-colors" />
                 <div>
-                  <h4 className="font-semibold text-white mb-1">Office Address</h4>
-                  <p className="text-gray-300 leading-relaxed">{contact.officeLocation}</p>
+                  <h4 className="font-semibold text-white group-hover:text-gold transition-colors mb-1">Office Address</h4>
+                  <p className="text-gray-300 leading-relaxed group-hover:text-gold transition-colors">{contact.officeLocation}</p>
                 </div>
-              </div>
+              </a>
               
-              <div className="flex items-start">
-                <PhoneIcon className="w-6 h-6 text-gold mr-4 flex-shrink-0 mt-1" />
+              <a 
+                href={`tel:+92${contact.primaryNumber.replace(/\s+/g, "").replace(/^0/, "")}`}
+                className="flex items-start group cursor-pointer"
+              >
+                <PhoneIcon className="w-6 h-6 text-gold group-hover:text-gold mr-4 flex-shrink-0 mt-1 transition-colors" />
                 <div>
-                  <h4 className="font-semibold text-white mb-1">Call & WhatsApp</h4>
-                  <p className="text-gray-300">{contact.primaryNumber}</p>
+                  <h4 className="font-semibold text-white group-hover:text-gold transition-colors mb-1">Call & WhatsApp</h4>
+                  <span className="text-gray-300 group-hover:text-gold transition-colors block">
+                    {contact.primaryNumber}
+                  </span>
                 </div>
-              </div>
+              </a>
 
-              <div className="flex items-start">
-                <EnvelopeIcon className="w-6 h-6 text-gold mr-4 flex-shrink-0 mt-1" />
+              <a 
+                href={`mailto:${contact.email}`} 
+                className="flex items-start group cursor-pointer"
+              >
+                <EnvelopeIcon className="w-6 h-6 text-gold group-hover:text-gold mr-4 flex-shrink-0 mt-1 transition-colors" />
                 <div>
-                  <h4 className="font-semibold text-white mb-1">Email</h4>
-                  <p className="text-gray-300">{contact.email}</p>
+                  <h4 className="font-semibold text-white group-hover:text-gold transition-colors mb-1">Email</h4>
+                  <span className="text-gray-300 group-hover:text-gold transition-colors block break-all">
+                    {contact.email}
+                  </span>
                 </div>
-              </div>
+              </a>
               
-              <div className="flex items-start">
-                <ChatBubbleLeftEllipsisIcon className="w-6 h-6 text-gold mr-4 flex-shrink-0 mt-1" />
+              <a 
+                href={contact.messengerLink} 
+                target="_blank" 
+                rel="noreferrer" 
+                className="flex items-start group cursor-pointer"
+              >
+                <ChatBubbleLeftEllipsisIcon className="w-6 h-6 text-gold group-hover:text-gold mr-4 flex-shrink-0 mt-1 transition-colors" />
                 <div>
-                  <h4 className="font-semibold text-white mb-1">Messenger</h4>
-                  <p className="text-gray-300">{contact.messengerName}</p>
+                  <h4 className="font-semibold text-white group-hover:text-gold transition-colors mb-1">Messenger</h4>
+                  <span className="text-gray-300 group-hover:text-gold transition-colors block">
+                    {contact.messengerName}
+                  </span>
                 </div>
-              </div>
+              </a>
             </div>
 
             <div className="mt-12 relative z-10">

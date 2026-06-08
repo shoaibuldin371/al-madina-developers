@@ -25,7 +25,7 @@ export default function TopContactBar() {
           <motion.a
             variants={itemVariants}
             whileHover={{ scale: 1.05, color: "#D4AF37", textShadow: "0px 0px 8px rgba(212, 175, 55, 0.4)" }}
-            href={`tel:${contact.primaryNumber.replace(/\s+/g, "")}`}
+            href={`tel:+92${contact.primaryNumber.replace(/\s+/g, "").replace(/^0/, "")}`}
             className="flex items-center transition-all duration-300"
           >
             <PhoneIcon className="w-4 h-4 mr-2 text-gold animate-[pulse_4s_ease-in-out_infinite]" />

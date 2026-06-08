@@ -78,7 +78,7 @@ export default function PakArabVideo() {
                 muted
                 loop
                 playsInline
-                poster="/assets/al-madinah/logo.jpg"
+                poster="/assets/al-madinah/al-madinah-logo-dark.png"
               >
                 <source src="/assets/al-madinah/pak%20arab.mp4" type="video/mp4" />
                 Your browser does not support the video tag.

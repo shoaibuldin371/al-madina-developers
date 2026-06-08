@@ -60,34 +60,48 @@ export default function ContactPersons() {
             </div>
             
             <div className="flex-grow space-y-4 relative z-10">
-              <div className="flex items-start">
-                <PhoneIcon className="w-5 h-5 text-gold mr-3 mt-0.5" />
+              <a 
+                href={`tel:+92${contact.primaryNumber.replace(/\s+/g, "").replace(/^0/, "")}`}
+                onClick={() => posthog?.capture('call_clicked', { button_location: 'contact_persons_info_row', contact_number: contact.primaryNumber, brand_name: 'Al Madina Developers' })}
+                className="flex items-start hover:text-gold transition-colors group cursor-pointer"
+              >
+                <PhoneIcon className="w-5 h-5 text-gold group-hover:text-white mr-3 mt-0.5 transition-colors" />
                 <span className="text-lg font-medium">{contact.primaryNumber}</span>
-              </div>
-              <div className="flex items-start">
-                <EnvelopeIcon className="w-5 h-5 text-gold mr-3 mt-0.5" />
-                <span className="text-gray-300">{contact.email}</span>
-              </div>
-              <div className="flex items-start">
-                <ChatBubbleLeftEllipsisIcon className="w-5 h-5 text-gold mr-3 mt-0.5" />
-                <span className="text-gray-300">{contact.messengerName}</span>
-              </div>
+              </a>
+              <a 
+                href={`mailto:${contact.email}`}
+                onClick={() => posthog?.capture('email_clicked', { button_location: 'contact_persons_info_row', brand_name: 'Al Madina Developers' })}
+                className="flex items-start hover:text-gold transition-colors group cursor-pointer"
+              >
+                <EnvelopeIcon className="w-5 h-5 text-gold group-hover:text-white mr-3 mt-0.5 transition-colors" />
+                <span className="text-gray-300 group-hover:text-white transition-colors break-all">{contact.email}</span>
+              </a>
+              <a 
+                href={contact.messengerLink}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => posthog?.capture('messenger_clicked', { button_location: 'contact_persons_info_row', brand_name: 'Al Madina Developers' })}
+                className="flex items-start hover:text-gold transition-colors group cursor-pointer"
+              >
+                <ChatBubbleLeftEllipsisIcon className="w-5 h-5 text-gold group-hover:text-white mr-3 mt-0.5 transition-colors" />
+                <span className="text-gray-300 group-hover:text-white transition-colors">{contact.messengerName}</span>
+              </a>
             </div>
             
             <div className="grid grid-cols-2 gap-3 mt-8 relative z-10">
               <a
-                href="tel:+923004873647"
-                onClick={() => posthog?.capture('call_clicked', { button_location: 'contact_persons_main', contact_number: '+923004873647', brand_name: 'Al Madina Developers' })}
+                href={`tel:+92${contact.primaryNumber.replace(/\s+/g, "").replace(/^0/, "")}`}
+                onClick={() => posthog?.capture('call_clicked', { button_location: 'contact_persons_main', contact_number: contact.primaryNumber, brand_name: 'Al Madina Developers' })}
                 aria-label="Call Now"
                 className="flex justify-center items-center py-2.5 bg-gold text-white font-medium rounded hover:bg-[#B5952F] transition-colors text-sm"
               >
                 Call Now
               </a>
               <a
-                href="https://wa.me/923004873647?text=Hello%20Al%20Madina%20Developers%2C%20I%20am%20interested%20in%20your%20property%20services.%20Please%20share%20more%20details."
+                href={`https://wa.me/92${contact.primaryWhatsApp.replace(/\s+/g, "").replace(/^0/, "")}?text=Hello%20Al%20Madina%20Developers%2C%20I%20am%20interested%20in%20your%20property%20services.%20Please%20share%20more%20details.`}
                 target="_blank"
                 rel="noreferrer"
-                onClick={() => posthog?.capture('whatsapp_clicked', { button_location: 'contact_persons_main', contact_number: '+923004873647', brand_name: 'Al Madina Developers' })}
+                onClick={() => posthog?.capture('whatsapp_clicked', { button_location: 'contact_persons_main', contact_number: contact.primaryWhatsApp, brand_name: 'Al Madina Developers' })}
                 aria-label="Contact via WhatsApp"
                 className="flex justify-center items-center py-2.5 bg-[#25D366] text-white font-medium rounded hover:bg-[#20bd5a] transition-colors text-sm"
               >

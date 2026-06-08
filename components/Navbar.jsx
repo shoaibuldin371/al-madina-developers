@@ -1,22 +1,11 @@
 "use client";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { siteData } from "@/data/siteData";
 import { Bars3Icon, XMarkIcon, PhoneIcon } from "@heroicons/react/24/outline";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePostHog } from 'posthog-js/react';
-
-const siteUrl = "https://al-madina-developers.vercel.app";
-
-const sectionLinks = {
-  home: `${siteUrl}/#home`,
-  about: `${siteUrl}/#about`,
-  services: `${siteUrl}/#services`,
-  properties: `${siteUrl}/#properties`,
-  plans: `${siteUrl}/#plans`,
-  gallery: `${siteUrl}/#gallery`,
-  contact: `${siteUrl}/#contact`,
-};
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,11 +22,13 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: sectionLinks.home },
-    { name: "About", href: sectionLinks.about },
-    { name: "Projects", href: sectionLinks.properties },
-    { name: "Gallery", href: sectionLinks.gallery },
-    { name: "Contact", href: sectionLinks.contact },
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Services", href: "/services" },
+    { name: "Projects", href: "/projects" },
+    { name: "Installment Plans", href: "/installment-plans" },
+    { name: "Gallery", href: "/gallery" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -51,18 +42,16 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 max-w-7xl flex items-center justify-between">
         {/* Logo and Brand */}
-        <a 
-          href={sectionLinks.home}
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link 
+          href="/"
           className="flex items-center space-x-3 group cursor-pointer"
         >
-          <div className="relative w-12 h-12 md:w-14 md:h-14 overflow-hidden rounded-full border-2 border-gold flex-shrink-0 shadow-sm group-hover:scale-105 transition-transform duration-300">
+          <div className="relative w-12 h-12 md:w-14 md:h-14 flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
             <Image
               src={company.logo}
-              alt={company.name}
+              alt="Al Madinah Developers Logo"
               fill
-              className="object-cover"
+              className="object-contain"
               sizes="(max-width: 768px) 48px, 56px"
               priority
             />
@@ -72,21 +61,19 @@ export default function Navbar() {
               Al Madina Developers
             </span>
           </div>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center space-x-6">
+        <nav className="hidden lg:flex items-center space-x-4 xl:space-x-5">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.name}
               href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
               className="relative text-sm font-medium text-navy hover:text-gold transition-colors group"
             >
               {link.name}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all group-hover:w-full"></span>
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -151,15 +138,13 @@ export default function Navbar() {
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: index * 0.05 }}
                 >
-                  <a
+                  <Link
                     href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="text-base font-medium text-navy hover:text-gold block py-2 border-b border-gray-200/50"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </motion.div>
               ))}
               <motion.div 

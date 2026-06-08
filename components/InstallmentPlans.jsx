@@ -4,7 +4,7 @@ import { siteData } from "@/data/siteData";
 import { motion } from "framer-motion";
 import { usePostHog } from 'posthog-js/react';
 
-export default function InstallmentPlans() {
+export default function InstallmentPlans({ hideHeader = false }) {
   const { installmentPlans, contact } = siteData;
   const posthog = usePostHog();
 
@@ -27,27 +27,29 @@ export default function InstallmentPlans() {
       <div className="absolute top-0 right-0 w-full h-px bg-gradient-to-r from-transparent via-gold to-transparent opacity-30"></div>
       
       <div className="container mx-auto px-4 max-w-7xl relative z-10">
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
-          className="text-center max-w-3xl mx-auto mb-16"
-        >
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <span className="w-12 h-[2px] bg-gold"></span>
-            <span className="text-gold font-semibold uppercase tracking-wider text-sm">
-              Investment
-            </span>
-            <span className="w-12 h-[2px] bg-gold"></span>
-          </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-navy mb-6">
-            Easy Booking & Installment Plans
-          </h2>
-          <p className="text-gray-600 text-lg">
-            Invest in your future with our flexible payment plans. We offer easy monthly installments for prime residential and commercial plots.
-          </p>
-        </motion.div>
+        {!hideHeader && (
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7 }}
+            className="text-center max-w-3xl mx-auto mb-16"
+          >
+            <div className="flex items-center justify-center space-x-2 mb-4">
+              <span className="w-12 h-[2px] bg-gold"></span>
+              <span className="text-gold font-semibold uppercase tracking-wider text-sm">
+                Investment
+              </span>
+              <span className="w-12 h-[2px] bg-gold"></span>
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-navy mb-6">
+              Easy Booking & Installment Plans
+            </h2>
+            <p className="text-gray-600 text-lg">
+              Invest in your future with our flexible payment plans. We offer easy monthly installments for prime residential and commercial plots.
+            </p>
+          </motion.div>
+        )}
 
         <motion.div 
           variants={containerVariants}
@@ -82,7 +84,7 @@ export default function InstallmentPlans() {
                   {plan.details}
                 </p>
                 <a
-                  href="https://wa.me/923001332279?text=Hello%20Al%20Madina%20Developers%2C%20I%20am%20interested%20in%20your%20property%20services.%20Please%20share%20more%20details."
+                  href={`https://wa.me/923001332279?text=Hello%20Al%20Madina%20Developers%2C%20I%20am%20interested%20in%20obtaining%20booking%20details%20for%20the%20${encodeURIComponent(plan.title)}.`}
                   target="_blank"
                   rel="noreferrer"
                   onClick={() => posthog?.capture('whatsapp_clicked', { button_location: 'installment_plans', plan_title: plan.title, brand_name: 'Al Madina Developers' })}

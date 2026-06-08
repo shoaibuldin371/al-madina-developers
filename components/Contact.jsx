@@ -5,7 +5,7 @@ import { PhoneIcon, ChatBubbleLeftEllipsisIcon } from "@heroicons/react/24/solid
 import { motion } from "framer-motion";
 import { usePostHog } from 'posthog-js/react';
 
-export default function Contact() {
+export default function Contact({ hideHeader = false }) {
   const { contact } = siteData;
   const [formStatus, setFormStatus] = useState("idle"); // idle, submitting, success
   const posthog = usePostHog();
@@ -37,23 +37,25 @@ export default function Contact() {
       <div className="absolute top-0 right-1/3 w-64 h-64 bg-gold rounded-full opacity-5 blur-3xl pointer-events-none"></div>
       
       <div className="container mx-auto px-4 max-w-7xl relative z-10">
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
-          className="text-center max-w-3xl mx-auto mb-16"
-        >
-          <span className="text-gold font-semibold uppercase tracking-wider text-sm mb-2 block">
-            Get In Touch
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-navy mb-6">
-            Contact Al Madina Developers
-          </h2>
-          <p className="text-gray-600 text-lg">
-            Ready to explore your next property opportunity? Contact our team today for personalized assistance.
-          </p>
-        </motion.div>
+        {!hideHeader && (
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7 }}
+            className="text-center max-w-3xl mx-auto mb-16"
+          >
+            <span className="text-gold font-semibold uppercase tracking-wider text-sm mb-2 block">
+              Get In Touch
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-navy mb-6">
+              Contact Al Madina Developers
+            </h2>
+            <p className="text-gray-600 text-lg">
+              Ready to explore your next property opportunity? Contact our team today for personalized assistance.
+            </p>
+          </motion.div>
+        )}
 
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
@@ -192,6 +194,61 @@ export default function Contact() {
                 <div>
                   <p className="text-xs text-gray-400 uppercase tracking-wide">Messenger</p>
                   <p className="font-bold text-lg">Al Madina Developers</p>
+                </div>
+              </a>
+
+              <a
+                href={`mailto:${contact.email}`}
+                onClick={() => posthog?.capture('email_clicked', { button_location: 'contact_section', brand_name: 'Al Madina Developers' })}
+                aria-label="Email Us"
+                className="flex items-center w-full p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-[#D4AF37]/20 transition-colors group"
+              >
+                <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mr-4 group-hover:bg-gold transition-colors">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-xs text-gray-400 uppercase tracking-wide">Email Address</p>
+                  <p className="font-bold text-base break-all">{contact.email}</p>
+                </div>
+              </a>
+
+              <a
+                href={contact.facebookLink}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => posthog?.capture('facebook_clicked', { button_location: 'contact_section', page: 'estate_builders', brand_name: 'Al Madina Developers' })}
+                aria-label="Visit Al Madina Estate Facebook Page"
+                className="flex items-center w-full p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-[#1877F2]/20 transition-colors group"
+              >
+                <div className="w-12 h-12 bg-[#1877F2]/20 rounded-full flex items-center justify-center mr-4 group-hover:bg-[#1877F2] transition-colors">
+                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-xs text-gray-400 uppercase tracking-wide">Facebook Page (Main)</p>
+                  <p className="font-bold text-base md:text-lg">Al Madina Estate</p>
+                </div>
+              </a>
+
+              <a
+                href={contact.facebookLink2}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => posthog?.capture('facebook_clicked', { button_location: 'contact_section', page: 'orchard_kasur', brand_name: 'Al Madina Developers' })}
+                aria-label="Visit Al-Madina Orchard Facebook Page"
+                className="flex items-center w-full p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-[#1877F2]/20 transition-colors group"
+              >
+                <div className="w-12 h-12 bg-[#1877F2]/20 rounded-full flex items-center justify-center mr-4 group-hover:bg-[#1877F2] transition-colors">
+                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-xs text-gray-400 uppercase tracking-wide">Facebook Page (Kasur)</p>
+                  <p className="font-bold text-base md:text-lg">Al-Madina Orchard</p>
                 </div>
               </a>
             </div>

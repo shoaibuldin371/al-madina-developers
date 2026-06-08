@@ -52,7 +52,7 @@ export default function WhyChooseUs() {
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-bl-[100px] pointer-events-none"></div>
               <p className="text-navy font-medium italic">
-                "Turning dreams into addresses with trust and professional guidance."
+                &ldquo;Turning dreams into addresses with trust and professional guidance.&rdquo;
               </p>
             </motion.div>
           </motion.div>

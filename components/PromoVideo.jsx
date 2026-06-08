@@ -53,7 +53,7 @@ export default function PromoVideo() {
               </ul>
               
               <div className="pt-6 mt-8 border-t border-gray-200">
-                <p className="font-serif italic text-xl text-navy mb-6">"Your Home. Your Future. Our Promise."</p>
+                <p className="font-serif italic text-xl text-navy mb-6">&ldquo;Your Home. Your Future. Our Promise.&rdquo;</p>
                 <div className="bg-white p-5 rounded-xl shadow-md border border-gray-100 inline-block transform hover:-translate-y-1 transition-transform">
                   <p className="text-sm text-gray-500 uppercase tracking-wider mb-1 font-semibold">📞 Book Now!</p>
                   <a href="https://wa.me/923001332279" target="_blank" rel="noreferrer" className="text-3xl font-bold text-gold hover:text-navy transition-colors flex items-center gap-2">
@@ -80,7 +80,7 @@ export default function PromoVideo() {
                 muted
                 loop
                 playsInline
-                poster="/assets/al-madinah/logo.jpg"
+                poster="/assets/al-madinah/al-madinah-logo-dark.png"
               >
                 <source src="/assets/al-madinah/Al-Madina.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
