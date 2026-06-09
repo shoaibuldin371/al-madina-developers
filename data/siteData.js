@@ -39,19 +39,19 @@ export const siteData = {
       "Al Madina Developers helps clients explore premium property opportunities with clear guidance, professional support, legally verified registry, and flexible installment plans.",
     image: "/assets/al-madinah/developers.png",
     trustBadges: [
+      "Al-Madinah Orchard by Zaamin City",
+      "Al-Madinah Gardens by Zaamin City",
+      "Official Sales Partner of Zaamin City Projects",
       "LDA Approved Housing",
       "5-Year Installment Plans",
-      "Gated Security Communities",
-      "Prime Boulevard Plots",
-      "Zaamin City Lahore",
-      "Al-Madina Orchard Kasur"
+      "Gated Security Communities"
     ],
   },
   services: [
     {
       id: "residential-plots",
       title: "Residential Plots",
-      description: "Find premium residential plots (3.5, 5, 8, 10 Marla) with complete registry and immediate possession in top developments like Al-Madina Orchard Kasur and Zaamin City Lahore.",
+      description: "Find premium residential plots (3.5, 5, 8, 10 Marla) with complete registry and immediate possession in top developments like Al-Madinah Orchard by Zaamin City, Al-Madinah Gardens by Zaamin City, and Zaamin City Lahore.",
       benefits: [
         "Select block options near central parks & mosques",
         "LDA approved, fully secured land registry",
@@ -118,42 +118,72 @@ export const siteData = {
   featuredProperties: [
     {
       id: "orchard-kasur-3-5m",
-      title: "Al-Madina Orchard Kasur - 3.5 Marla Plot",
+      title: "Al-Madinah Orchard by Zaamin City - 3.5 Marla Plot",
       badge: "5-Year Installments",
       category: "residential",
       price: "Down Payment: 25%",
-      location: "Al-Madina Orchard, Kasur",
-      details: "Book a 3.5 Marla residential plot in Al-Madina Orchard, Kasur on an easy 5-year monthly installment plan. Premium community featuring Grand Central Park, gated security, schools, and mosques.",
+      location: "Al-Madinah Orchard, Kasur",
+      details: "Book a 3.5 Marla residential plot in Al-Madinah Orchard by Zaamin City on an easy 5-year monthly installment plan. Al Madina Developers is the official sales partner for this premium gated community.",
       image: "/assets/al-madinah/472097917_122122903346595661_5990143530882313701_n.jpg",
     },
     {
       id: "orchard-kasur-5m",
-      title: "Al-Madina Orchard Kasur - 5 Marla Plot",
+      title: "Al-Madinah Orchard by Zaamin City - 5 Marla Plot",
       badge: "5-Year Installments",
       category: "residential",
       price: "Down Payment: 25%",
-      location: "Al-Madina Orchard, Kasur",
-      details: "Premium 5 Marla residential plot for sale on easy installments in Kasur. Prime location with fast-track development, boundary wall security, and sewerage system ready.",
+      location: "Al-Madinah Orchard, Kasur",
+      details: "Premium 5 Marla residential plot for sale on easy installments in Al-Madinah Orchard by Zaamin City. Prime location with fast-track development, boundary wall security, and sewerage system ready.",
       image: "/assets/al-madinah/480162649_122128096406595661_7555021955625685651_n.jpg",
     },
     {
       id: "orchard-kasur-10m",
-      title: "Al-Madina Orchard Kasur - 10 Marla Plot",
+      title: "Al-Madinah Orchard by Zaamin City - 10 Marla Plot",
       badge: "Investment Pick",
       category: "investment",
       price: "Down Payment: 25%",
-      location: "Al-Madina Orchard, Kasur",
-      details: "Spacious 10 Marla residential plot in Kasur's premier gated community. Perfect for building a luxury villa. Direct access to wide roads and nearby park amenities.",
+      location: "Al-Madinah Orchard, Kasur",
+      details: "Spacious 10 Marla residential plot in Al-Madinah Orchard by Zaamin City. Perfect for building a luxury villa. Direct access to wide roads and nearby park amenities.",
       image: "/assets/al-madinah/474885733_122128096424595661_7312146938683090334_n.jpg",
     },
     {
       id: "orchard-kasur-3m-comm",
-      title: "Al-Madina Orchard Kasur - 3 Marla Commercial",
+      title: "Al-Madinah Orchard by Zaamin City - 3 Marla Commercial",
       badge: "High ROI Potential",
       category: "commercial",
       price: "Call for Booking Rates",
-      location: "Al-Madina Orchard, Kasur",
-      details: "3 Marla commercial plot on Main Boulevard bypass road Kasur. Excellent business location with parking, perfect for shops and retail outlets.",
+      location: "Al-Madinah Orchard, Kasur",
+      details: "3 Marla commercial plot on Main Boulevard of Al-Madinah Orchard by Zaamin City. Excellent business location with parking, perfect for shops and retail outlets.",
+      image: "/assets/al-madinah/473249018_122122903076595661_5426137947226835604_n.jpg",
+    },
+    {
+      id: "garden-kasur-5m",
+      title: "Al-Madinah Gardens by Zaamin City - 5 Marla Plot",
+      badge: "5-Year Installments",
+      category: "residential",
+      price: "Down Payment: 25%",
+      location: "Al-Madinah Gardens, Kasur",
+      details: "Book a 5 Marla residential plot in Al-Madinah Gardens by Zaamin City on an easy 5-year installment plan. Beautiful gated sector with modern infrastructure and central park access.",
+      image: "/assets/al-madinah/480162649_122128096406595661_7555021955625685651_n.jpg",
+    },
+    {
+      id: "garden-kasur-10m",
+      title: "Al-Madinah Gardens by Zaamin City - 10 Marla Plot",
+      badge: "Premium Block",
+      category: "investment",
+      price: "Down Payment: 25%",
+      location: "Al-Madinah Gardens, Kasur",
+      details: "Spacious 10 Marla residential plot in Al-Madinah Gardens by Zaamin City. Perfect for family houses or long-term investment. Near commercial hubs and mosques.",
+      image: "/assets/al-madinah/474885733_122128096424595661_7312146938683090334_n.jpg",
+    },
+    {
+      id: "garden-kasur-3m-comm",
+      title: "Al-Madinah Gardens by Zaamin City - 3 Marla Commercial",
+      badge: "High ROI Potential",
+      category: "commercial",
+      price: "Call for Booking",
+      location: "Al-Madinah Gardens, Kasur",
+      details: "Prime 3 Marla commercial plot in Al-Madinah Gardens by Zaamin City. High footfall area with excellent retail potential and convenient access from the main bypass road.",
       image: "/assets/al-madinah/473249018_122122903076595661_5426137947226835604_n.jpg",
     },
     {
@@ -218,20 +248,20 @@ export const siteData = {
     },
     {
       id: "fb-feed-1780863906268",
-      title: "Al-Madina Orchard - 5-Year Installment Plan",
+      title: "Al-Madinah Orchard by Zaamin City - 5-Year Installment Plan",
       badge: "Facebook Listing",
       category: "commercial",
       price: "Down Payment: 25%",
-      location: "Al-Madina Orchard, Kasur",
-      details: "Al-Madina Orchard: Aasan Iqsaat Plan! Apna Plot Aaj Hi Book Karain, Sirf 25% Advance Par! 60 Months Easy Installment Plan: Booking: Sirf 25% Advance, Installments: 5 Saal (60 Maheenay) ki aasan iqsaat.",
+      location: "Al-Madinah Orchard, Kasur",
+      details: "Al-Madinah Orchard by Zaamin City: Aasan Iqsaat Plan! Apna Plot Aaj Hi Book Karain, Sirf 25% Advance Par! 60 Months Easy Installment Plan: Booking: Sirf 25% Advance, Installments: 5 Saal (60 Maheenay) ki aasan iqsaat.",
       image: "/assets/al-madinah/fb_feed_1780863906268.jpg"
     }
   ],
   installmentPlans: [
     {
       id: "orchard-kasur-plan",
-      title: "Al-Madina Orchard Kasur 5-Year Payment Plan",
-      details: "Official 5-year installment plan flyer for Al-Madina Orchard, Kasur. Down payment starts from 25%, with flexible monthly and half-yearly schedules.",
+      title: "Al-Madinah Orchard Kasur 5-Year Payment Plan",
+      details: "Official 5-year installment plan flyer for Al-Madinah Orchard, Kasur. Down payment starts from 25%, with flexible monthly and half-yearly schedules.",
       image: "/assets/al-madinah/473346854_122122903100595661_5629247570147793541_n.jpg",
     },
     {
@@ -254,14 +284,14 @@ export const siteData = {
         "All our projects and society dealings are fully LDA approved or legally verified, securing your hard-earned capital.",
     },
     {
-      title: "Al-Madina Orchard Developer",
+      title: "Official Sales Partner for Al-Madinah Orchard",
       description:
-        "We are the direct development partners for Al-Madina Orchard Kasur, offering exclusive bookings and best pricing.",
+        "Al-Madinah Orchard by Zaamin City is our primary featured project, offering premium plots and high ROI potential.",
     },
     {
-      title: "Zaamin City Specialization",
+      title: "Zaamin City Official Sales Partner",
       description:
-        "Headquartered in Zaamin City Lahore C Block, we hold premium exclusive inventories of plots, ready homes, and rentals.",
+        "As the official sales partner of Zaamin City projects, we provide exclusive inventory and best booking rates.",
     },
     {
       title: "5-Year Flexible Installments",
@@ -280,10 +310,10 @@ export const siteData = {
   ],
   galleryImages: {
     projects: [
-      { src: "/assets/al-madinah/site-map.jpg", alt: "Al-Madina Orchard Kasur Site Map" },
-      { src: "/assets/al-madinah/472097917_122122903346595661_5990143530882313701_n.jpg", alt: "Al-Madina Orchard Kasur Project Layout" },
-      { src: "/assets/al-madinah/473249018_122122903076595661_5426137947226835604_n.jpg", alt: "Al-Madina Orchard Kasur Society Layout Map" },
-      { src: "/assets/al-madinah/473346854_122122903100595661_5629247570147793541_n.jpg", alt: "Al-Madina Orchard Kasur 5-Year Payment Plan Flyer" },
+      { src: "/assets/al-madinah/site-map.jpg", alt: "Al-Madinah Orchard Kasur Site Map" },
+      { src: "/assets/al-madinah/472097917_122122903346595661_5990143530882313701_n.jpg", alt: "Al-Madinah Orchard Kasur Project Layout" },
+      { src: "/assets/al-madinah/473249018_122122903076595661_5426137947226835604_n.jpg", alt: "Al-Madinah Orchard Kasur Society Layout Map" },
+      { src: "/assets/al-madinah/473346854_122122903100595661_5629247570147793541_n.jpg", alt: "Al-Madinah Orchard Kasur 5-Year Payment Plan Flyer" },
     ],
     properties: [
       { src: "/assets/al-madinah/474885733_122128096424595661_7312146938683090334_n.jpg", alt: "On-site Plot Land Development" },
@@ -294,7 +324,6 @@ export const siteData = {
     ],
     office: [
       { src: "/assets/al-madinah/517406384_122154521690595661_1469066253683716296_n.jpg", alt: "Al Madina Developers Site Office Entrance" },
-      { src: "/assets/al-madinah/Al-madinah.png", alt: "Al Madina Developers Main Headquarters" },
       { src: "/assets/al-madinah/582426105_122168973218595661_2291833332829135966_n.jpg", alt: "Al Madina Developers Executive Office Room" },
     ],
     updates: [

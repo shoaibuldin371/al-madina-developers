@@ -32,7 +32,7 @@ export default function WhyChooseUs() {
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true }}
             transition={{ duration: 0.7 }}
             className="lg:w-1/3"
           >
@@ -61,7 +61,7 @@ export default function WhyChooseUs() {
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true }}
             className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6"
           >
             {whyChooseUs.map((item, index) => (

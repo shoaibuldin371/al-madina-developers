@@ -78,7 +78,7 @@ export default function FeaturedProperties({ limit, hideHeader = false }) {
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true }}
             transition={{ duration: 0.7 }}
             className="flex flex-col md:flex-row justify-between items-end mb-12"
           >

@@ -13,7 +13,7 @@ export default function Location({ hideHeader = false }) {
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true }}
             transition={{ duration: 0.7 }}
             className="text-center max-w-3xl mx-auto mb-16"
           >
@@ -32,7 +32,7 @@ export default function Location({ hideHeader = false }) {
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="flex flex-col lg:flex-row gap-0 rounded-3xl overflow-hidden bg-white shadow-2xl border border-gray-100"
         >

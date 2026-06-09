@@ -85,7 +85,7 @@ export default function AboutPage() {
                   For over a decade, the founders of <strong>Al Madina Developers</strong> have been serving the property market in Lahore with dedication and transparency. Over this time, we have helped hundreds of families find plots, build custom homes, and invest in secure commercial properties.
                 </p>
                 <p>
-                  We are based in <strong>Zaamin City Lahore</strong>, one of the city&apos;s finest and most rapidly growing gated communities. We maintain active inventory in residential plots (3.5, 5, 8, 10 Marla and 1 Kanal) and commercial spaces, along with our specialized Kasur orchard development projects.
+                  We are based in <strong>Zaamin City Lahore</strong>, one of the city&apos;s finest and most rapidly growing gated communities. We maintain active inventory in residential plots (3.5, 5, 8, 10 Marla and 1 Kanal) and commercial spaces, along with the premier Al-Madinah Orchard by Zaamin City and Al-Madinah Gardens by Zaamin City projects, for which we are the official sales partner.
                 </p>
                 <p>
                   Unlike generic property portals, we provide direct on-ground consultations, guided layout tours, and direct contact with verified sellers to guarantee that every plot we list has zero dispute records.

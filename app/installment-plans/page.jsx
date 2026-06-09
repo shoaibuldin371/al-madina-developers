@@ -86,7 +86,7 @@ export default function InstallmentPlansPage() {
               Standard Plot Payment Schedules
             </h2>
             <p className="text-gray-600 text-lg">
-              Explore typical 5-year installment breakdown guides for residential and commercial plots in Al-Madina Orchard Kasur.
+              Explore typical 5-year installment breakdown guides for residential and commercial plots in Al-Madinah Orchard and Al-Madinah Gardens by Zaamin City.
             </p>
           </div>
 
@@ -95,7 +95,7 @@ export default function InstallmentPlansPage() {
               {
                 size: "3.5 Marla Residential",
                 type: "Residential Plot",
-                location: "Al-Madina Orchard, Kasur",
+                location: "Al-Madinah Orchard by Zaamin City",
                 downPayment: "25% Down Payment",
                 installments: "60 Monthly Iqsaat",
                 period: "5 Years Period",
@@ -105,7 +105,7 @@ export default function InstallmentPlansPage() {
               {
                 size: "5 Marla Residential",
                 type: "Residential Plot",
-                location: "Al-Madina Orchard, Kasur",
+                location: "Al-Madinah Orchard by Zaamin City",
                 downPayment: "25% Down Payment",
                 installments: "60 Monthly Iqsaat",
                 period: "5 Years Period",
@@ -113,24 +113,24 @@ export default function InstallmentPlansPage() {
                 features: ["Prime location blocks", "Sewerage system ready", "Mosque & school access"],
               },
               {
-                size: "10 Marla Residential",
+                size: "5 Marla Residential",
                 type: "Residential Plot",
-                location: "Al-Madina Orchard, Kasur",
+                location: "Al-Madinah Gardens by Zaamin City",
                 downPayment: "25% Down Payment",
                 installments: "60 Monthly Iqsaat",
                 period: "5 Years Period",
-                tag: "Premium Size",
-                features: ["On-ground possession", "Wide boulevard access", "Modern parks view"],
+                tag: "Garden Project",
+                features: ["Gated community security", "Modern sewerage system", "Central park view"],
               },
               {
                 size: "3 Marla Commercial",
                 type: "Commercial Plot",
-                location: "Al-Madina Orchard, Kasur",
+                location: "Al-Madinah Orchard by Zaamin City",
                 downPayment: "25% Down Payment",
                 installments: "60 Monthly Iqsaat",
                 period: "5 Years Period",
                 tag: "High Yield",
-                features: ["Main bypass road bypass", "High footfall sector", "Ideal for shops & retail"],
+                features: ["Main bypass road access", "High footfall sector", "Ideal for shops & retail"],
               },
             ].map((plan, idx) => (
               <div 

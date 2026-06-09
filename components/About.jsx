@@ -16,7 +16,7 @@ export default function About() {
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="relative glass p-10 md:p-14 rounded-3xl shadow-xl border border-gray-100 hover-lift text-center"
         >

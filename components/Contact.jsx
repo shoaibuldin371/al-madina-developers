@@ -41,7 +41,7 @@ export default function Contact({ hideHeader = false }) {
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true }}
             transition={{ duration: 0.7 }}
             className="text-center max-w-3xl mx-auto mb-16"
           >
@@ -60,7 +60,7 @@ export default function Contact({ hideHeader = false }) {
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="flex flex-col lg:flex-row gap-0 bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100"
         >
@@ -238,7 +238,7 @@ export default function Contact({ hideHeader = false }) {
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => posthog?.capture('facebook_clicked', { button_location: 'contact_section', page: 'orchard_kasur', brand_name: 'Al Madina Developers' })}
-                aria-label="Visit Al-Madina Orchard Facebook Page"
+                aria-label="Visit Al-Madinah Orchard Facebook Page"
                 className="flex items-center w-full p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-[#1877F2]/20 transition-colors group"
               >
                 <div className="w-12 h-12 bg-[#1877F2]/20 rounded-full flex items-center justify-center mr-4 group-hover:bg-[#1877F2] transition-colors">
@@ -248,7 +248,7 @@ export default function Contact({ hideHeader = false }) {
                 </div>
                 <div>
                   <p className="text-xs text-gray-400 uppercase tracking-wide">Facebook Page (Kasur)</p>
-                  <p className="font-bold text-base md:text-lg">Al-Madina Orchard</p>
+                  <p className="font-bold text-base md:text-lg">Al-Madinah Orchard</p>
                 </div>
               </a>
             </div>

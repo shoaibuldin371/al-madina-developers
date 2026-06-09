@@ -1,6 +1,12 @@
 @import "tailwindcss";
 
 @theme {
+  --color-navy: #0F172A;
+  --color-dark: #0a0f1d;
+  --color-gold: #D4AF37;
+  --color-gold-light: #F3E5AB;
+  --color-grey: #F8FAFC;
+  
   --color-brand-navy: #0F172A;
   --color-brand-dark: #0a0f1d;
   --color-brand-gold: #D4AF37;
@@ -40,14 +46,6 @@
   --foreground: #0F172A;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Since user wants a consistent look, we can keep dark mode similar to navy theme or let it be */
-    --background: #0F172A;
-    --foreground: #F8FAFC;
-  }
-}
-
 body {
   background-color: var(--background);
   color: var(--foreground);
@@ -55,10 +53,11 @@ body {
   overflow-x: hidden;
 }
 
-.text-gold { color: var(--color-brand-gold); }
-.bg-gold { background-color: var(--color-brand-gold); }
-.bg-navy { background-color: var(--color-brand-navy); }
-.bg-dark { background-color: var(--color-brand-dark); }
+.text-gold { color: var(--color-gold); }
+.text-navy { color: var(--color-navy); }
+.bg-gold { background-color: var(--color-gold); }
+.bg-navy { background-color: var(--color-navy); }
+.bg-dark { background-color: var(--color-dark); }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar { width: 8px; }

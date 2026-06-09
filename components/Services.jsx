@@ -54,7 +54,7 @@ export default function Services({ hideHeader = false }) {
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true }}
             transition={{ duration: 0.7 }}
             className="text-center max-w-3xl mx-auto mb-16"
           >
@@ -78,14 +78,14 @@ export default function Services({ hideHeader = false }) {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8"
         >
           {services.map((service, index) => (
             <motion.div 
               variants={itemVariants}
               key={service.id}
-              className="group p-8 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-2xl hover:border-gold/50 transition-all duration-500 relative overflow-hidden hover-lift h-full flex flex-col justify-between"
+              className="group p-6 md:p-8 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-2xl hover:border-gold/50 transition-all duration-500 relative overflow-hidden hover-lift h-full flex flex-col justify-between"
             >
               <div>
                 {/* Decorative background element on hover */}

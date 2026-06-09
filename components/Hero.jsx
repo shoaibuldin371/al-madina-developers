@@ -176,7 +176,7 @@ export default function Hero() {
                   >
                     <option value="all">All Locations</option>
                     <option value="lahore">Zaamin City, Lahore</option>
-                    <option value="kasur">Al-Madina Orchard, Kasur</option>
+                    <option value="kasur">Al-Madinah Orchard & Garden (Kasur)</option>
                   </select>
                 </div>
 

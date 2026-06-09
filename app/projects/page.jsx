@@ -48,7 +48,7 @@ function ProjectsPageContent() {
       const isLahore = p.location?.toLowerCase().includes("lahore") || p.location?.toLowerCase().includes("zaamin");
       if (!isLahore) return false;
     } else if (location === "kasur") {
-      const isKasur = p.location?.toLowerCase().includes("kasur") || p.location?.toLowerCase().includes("orchard");
+      const isKasur = p.location?.toLowerCase().includes("kasur") || p.location?.toLowerCase().includes("orchard") || p.location?.toLowerCase().includes("garden");
       if (!isKasur) return false;
     }
 
@@ -147,7 +147,7 @@ function ProjectsPageContent() {
               >
                 <option value="all">All Locations</option>
                 <option value="lahore">Zaamin City, Lahore</option>
-                <option value="kasur">Al-Madina Orchard, Kasur</option>
+                <option value="kasur">Al-Madinah Orchard & Garden (Kasur)</option>
               </select>
             </div>
 

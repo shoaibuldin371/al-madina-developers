@@ -10,17 +10,17 @@ export default function FeaturedVideos() {
   const videoData = [
     {
       id: "special-project",
-      title: "Special Project - Al-Madina Orchard Kasur",
-      description: "Explore the state-of-the-art gated community offering 3.5, 5, 8, and 10 Marla residential plots on a flexible 5-year installment plan with world-class amenities.",
+      title: "Special Project - Al-Madinah Orchard",
+      description: "Explore the state-of-the-art gated community offering 3.5, 5, 8, and 10 Marla residential plots on a flexible 5-year installment plan with world-class amenities in Al-Madinah Orchard by Zaamin City.",
       src: "/assets/al-madinah/Al-Madina.mp4",
-      whatsappText: "Hello Al Madina Developers, I am interested in the Al-Madina Orchard Kasur project shown in your Special Project video.",
+      whatsappText: "Hello Al Madina Developers, I am interested in the Al-Madinah Orchard project shown in your Special Project video.",
     },
     {
       id: "modern-living",
-      title: "Modern Living - Premium Lifestyle Development",
-      description: "A visual tour of the rapid infrastructure developments, security systems, central parks, and mosque installations designed for modern family living.",
+      title: "Special Project - Al-Madinah Gardens",
+      description: "A visual tour of the rapid infrastructure developments, security systems, central parks, and mosque installations in Al-Madinah Gardens by Zaamin City.",
       src: "/assets/al-madinah/pak arab.mp4",
-      whatsappText: "Hello Al Madina Developers, I am interested in the lifestyle plots and houses shown in your Modern Living video.",
+      whatsappText: "Hello Al Madina Developers, I am interested in the Al-Madinah Gardens project shown in your Special Project video.",
     },
   ];
 
@@ -34,7 +34,7 @@ export default function FeaturedVideos() {
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true }}
           transition={{ duration: 0.7 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
@@ -69,7 +69,7 @@ export default function FeaturedVideos() {
 }
 
 function VideoCard({ video, index, posthog }) {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const videoRef = useRef(null);
 
   const togglePlay = () => {
@@ -95,7 +95,7 @@ function VideoCard({ video, index, posthog }) {
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-50px" }}
+      viewport={{ once: true }}
       variants={cardVariants}
       className="bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 flex flex-col h-full hover:shadow-2xl transition-all duration-300 group"
     >
@@ -105,10 +105,11 @@ function VideoCard({ video, index, posthog }) {
           ref={videoRef}
           className="w-full h-full object-cover"
           src={video.src}
+          autoPlay
           loop
           muted
           playsInline
-          preload="none"
+          preload="auto"
           controls={isPlaying}
           onClick={togglePlay}
           onPlay={() => setIsPlaying(true)}
