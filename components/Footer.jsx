@@ -5,11 +5,11 @@ import { PhoneIcon, EnvelopeIcon, MapPinIcon } from "@heroicons/react/24/outline
 
 export default function Footer() {
   const { company, contact, services } = siteData;
-  const displayYear = "2026";
+  const displayYear = new Date().getFullYear().toString();
 
   return (
     <footer className="bg-navy text-gray-300 pt-20 border-t-[6px] border-gold relative overflow-hidden">
-      {/* Decorative background */}
+      {/* Decorative background overlay */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-gold"></div>
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gold/5 rounded-full blur-3xl translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
 
@@ -23,7 +23,7 @@ export default function Footer() {
                   src={company.logoDark}
                   alt="Al Madinah Developers Logo"
                   fill
-                  className="object-contain"
+                  className="object-contain rounded-lg"
                   sizes="64px"
                 />
               </div>
@@ -37,14 +37,14 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-sm leading-relaxed text-gray-400">
-              {company.aboutShort}
+              {company.aboutProfessional}
             </p>
             <div className="pt-4 flex items-center space-x-3">
               <a
                 href={contact.facebookLink}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-gradient-gold text-white transition-all duration-300 shadow-sm hover:shadow-gold/30 hover:-translate-y-1"
+                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-gradient-gold text-white transition-all duration-300 shadow-sm hover:shadow-gold/30 hover:-translate-y-1 cursor-pointer"
                 aria-label="Al Madina Estate & Builders Facebook"
                 title="Al Madina Estate & Builders Facebook"
               >
@@ -56,7 +56,7 @@ export default function Footer() {
                 href={contact.facebookLink2}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-gradient-gold text-white transition-all duration-300 shadow-sm hover:shadow-gold/30 hover:-translate-y-1"
+                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-gradient-gold text-white transition-all duration-300 shadow-sm hover:shadow-gold/30 hover:-translate-y-1 cursor-pointer"
                 aria-label="Al-Madinah Orchard Kasur Facebook"
                 title="Al-Madinah Orchard Kasur Facebook"
               >
@@ -68,7 +68,7 @@ export default function Footer() {
                 href="https://wa.me/923001332279"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-[#25D366] text-white transition-all duration-300 shadow-sm hover:shadow-[#25D366]/30 hover:-translate-y-1"
+                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-[#25D366] text-white transition-all duration-300 shadow-sm hover:shadow-[#25D366]/30 hover:-translate-y-1 cursor-pointer"
                 aria-label="WhatsApp"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -78,43 +78,47 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Links & Featured Projects */}
           <div>
             <h4 className="text-white font-bold mb-6 text-lg">Quick Links</h4>
             <ul className="space-y-3 text-sm">
               <li>
                 <Link href="/" className="hover:text-gold hover:translate-x-1 transition-all duration-300 inline-flex items-center group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gold mr-2 group-hover:bg-gold transition-colors"></span> Home
+                  <span className="w-1.5 h-1.5 rounded-full bg-gold mr-2"></span> Home
                 </Link>
               </li>
               <li>
                 <Link href="/about" className="hover:text-gold hover:translate-x-1 transition-all duration-300 inline-flex items-center group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gold mr-2 group-hover:bg-gold transition-colors"></span> About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="hover:text-gold hover:translate-x-1 transition-all duration-300 inline-flex items-center group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gold mr-2 group-hover:bg-gold transition-colors"></span> Services
-                </Link>
-              </li>
-              <li>
-                <Link href="/projects" className="hover:text-gold hover:translate-x-1 transition-all duration-300 inline-flex items-center group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gold mr-2 group-hover:bg-gold transition-colors"></span> Featured Properties
+                  <span className="w-1.5 h-1.5 rounded-full bg-gold mr-2"></span> About Us
                 </Link>
               </li>
               <li>
                 <Link href="/installment-plans" className="hover:text-gold hover:translate-x-1 transition-all duration-300 inline-flex items-center group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gold mr-2 group-hover:bg-gold transition-colors"></span> Installment Plans
+                  <span className="w-1.5 h-1.5 rounded-full bg-gold mr-2"></span> Installment Plans
                 </Link>
               </li>
               <li>
                 <Link href="/gallery" className="hover:text-gold hover:translate-x-1 transition-all duration-300 inline-flex items-center group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gold mr-2 group-hover:bg-gold transition-colors"></span> Gallery
+                  <span className="w-1.5 h-1.5 rounded-full bg-gold mr-2"></span> Gallery
                 </Link>
               </li>
               <li>
                 <Link href="/contact" className="hover:text-gold hover:translate-x-1 transition-all duration-300 inline-flex items-center group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gold mr-2 group-hover:bg-gold transition-colors"></span> Contact Us
+                  <span className="w-1.5 h-1.5 rounded-full bg-gold mr-2"></span> Contact Us
+                </Link>
+              </li>
+            </ul>
+
+            <h4 className="text-white font-bold mt-8 mb-4 text-sm uppercase tracking-wider text-gold">Zaamin Projects</h4>
+            <ul className="space-y-3 text-sm">
+              <li>
+                <Link href="/projects?location=kasur&type=plot" className="hover:text-gold hover:translate-x-1 transition-all duration-300 inline-flex items-center group">
+                  <span className="w-1.5 h-1.5 rounded-full bg-gold mr-2"></span> Al-Madina Orchard
+                </Link>
+              </li>
+              <li>
+                <Link href="/projects?location=kasur&type=plot" className="hover:text-gold hover:translate-x-1 transition-all duration-300 inline-flex items-center group">
+                  <span className="w-1.5 h-1.5 rounded-full bg-gold mr-2"></span> Al-Madina Garden
                 </Link>
               </li>
             </ul>
@@ -172,8 +176,8 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Copyright */}
-        <div className="py-6 border-t border-white/10 text-center text-sm text-gray-500 flex justify-center items-center">
+        {/* Bottom Copyright - clean and premium, no templates */}
+        <div className="py-6 border-t border-white/10 text-center text-sm text-gray-500">
           <p>© {displayYear} {company.name}. All Rights Reserved.</p>
         </div>
       </div>

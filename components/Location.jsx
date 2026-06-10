@@ -37,7 +37,7 @@ export default function Location({ hideHeader = false }) {
           className="flex flex-col lg:flex-row gap-0 rounded-3xl overflow-hidden bg-white shadow-2xl border border-gray-100"
         >
           {/* Map/Contact Info Side */}
-          <div className="lg:w-1/3 p-10 bg-gradient-navy text-white flex flex-col justify-center relative overflow-hidden">
+          <div className="lg:w-1/3 p-10 bg-navy text-white flex flex-col justify-center relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-gold/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
             
             <h3 className="text-2xl font-bold font-serif mb-8 text-gold relative z-10">Al Madina Developers</h3>
@@ -52,7 +52,7 @@ export default function Location({ hideHeader = false }) {
                 <MapPinIcon className="w-6 h-6 text-gold group-hover:text-gold mr-4 flex-shrink-0 mt-1 transition-colors" />
                 <div>
                   <h4 className="font-semibold text-white group-hover:text-gold transition-colors mb-1">Office Address</h4>
-                  <p className="text-gray-300 leading-relaxed group-hover:text-gold transition-colors">{contact.officeLocation}</p>
+                  <p className="text-gray-300 leading-relaxed group-hover:text-gold transition-colors text-sm">{contact.officeLocation}</p>
                 </div>
               </a>
               
@@ -63,7 +63,7 @@ export default function Location({ hideHeader = false }) {
                 <PhoneIcon className="w-6 h-6 text-gold group-hover:text-gold mr-4 flex-shrink-0 mt-1 transition-colors" />
                 <div>
                   <h4 className="font-semibold text-white group-hover:text-gold transition-colors mb-1">Call & WhatsApp</h4>
-                  <span className="text-gray-300 group-hover:text-gold transition-colors block">
+                  <span className="text-gray-300 group-hover:text-gold transition-colors block text-sm">
                     {contact.primaryNumber}
                   </span>
                 </div>
@@ -76,7 +76,7 @@ export default function Location({ hideHeader = false }) {
                 <EnvelopeIcon className="w-6 h-6 text-gold group-hover:text-gold mr-4 flex-shrink-0 mt-1 transition-colors" />
                 <div>
                   <h4 className="font-semibold text-white group-hover:text-gold transition-colors mb-1">Email</h4>
-                  <span className="text-gray-300 group-hover:text-gold transition-colors block break-all">
+                  <span className="text-gray-300 group-hover:text-gold transition-colors block break-all text-sm">
                     {contact.email}
                   </span>
                 </div>
@@ -91,7 +91,7 @@ export default function Location({ hideHeader = false }) {
                 <ChatBubbleLeftEllipsisIcon className="w-6 h-6 text-gold group-hover:text-gold mr-4 flex-shrink-0 mt-1 transition-colors" />
                 <div>
                   <h4 className="font-semibold text-white group-hover:text-gold transition-colors mb-1">Messenger</h4>
-                  <span className="text-gray-300 group-hover:text-gold transition-colors block">
+                  <span className="text-gray-300 group-hover:text-gold transition-colors block text-sm">
                     {contact.messengerName}
                   </span>
                 </div>
@@ -103,43 +103,23 @@ export default function Location({ hideHeader = false }) {
                 href={contact.googleMapsSearch}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center w-full py-4 bg-gradient-gold text-white font-bold rounded-md shadow-lg shadow-gold/20 hover-lift transition-all uppercase tracking-wider text-sm"
+                className="inline-flex items-center justify-center w-full py-4 bg-gradient-gold text-white font-bold rounded-md shadow-lg shadow-gold/20 hover-lift transition-all uppercase tracking-wider text-xs cursor-pointer"
               >
                 Open in Google Maps
               </a>
             </div>
           </div>
 
-          {/* Map Image Placeholder Side */}
-          <div className="lg:w-2/3 relative min-h-[400px]">
+          {/* Interactive Map Side */}
+          <div className="lg:w-2/3 relative min-h-[450px] bg-slate-100">
             <iframe
-              title="Google Maps Location"
-              src={`https://www.google.com/maps/embed/v1/place?q=${encodeURIComponent("Zaamin City Lahore")}&key=YOUR_API_KEY_HERE`} // Note: A real API key would be needed here for production, but using an iframe or map image is fine. Using an iframe with generic Zaamin city view or static map placeholder.
-              className="absolute inset-0 w-full h-full object-cover"
-              style={{ border: 0, filter: "grayscale(20%)" }}
+              title="Al Madina Developers Google Map Location"
+              src="https://maps.google.com/maps?q=Office%20No.%2021,%20C%20Block,%20Main%20Boulevard,%20Zaamin%20City,%20Lahore&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              className="absolute inset-0 w-full h-full border-0"
+              style={{ filter: "contrast(1.02) saturate(0.98)" }}
               loading="lazy"
               allowFullScreen
             ></iframe>
-            {/* Fallback to cover the map with a nice placeholder if API fails or for generic display */}
-            <div className="absolute inset-0 bg-gray-200 flex flex-col items-center justify-center text-gray-500 z-10" style={{ backgroundImage: "url('/assets/al-madinah/site-map.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
-               <div className="absolute inset-0 bg-navy/70 backdrop-blur-[4px]"></div>
-               <motion.div 
-                 whileHover={{ scale: 1.05 }}
-                 className="relative z-20 text-center p-10 glass-dark rounded-2xl max-w-sm border border-gold/20 shadow-2xl"
-               >
-                 <MapPinIcon className="w-16 h-16 text-gold mx-auto mb-4" />
-                 <h3 className="text-white text-2xl font-bold mb-2 font-serif">Zaamin City, Lahore</h3>
-                 <p className="text-gray-300 mb-8">Main Boulevard, C Block, Office No. 21</p>
-                 <a 
-                   href={contact.googleMapsSearch}
-                   target="_blank"
-                   rel="noreferrer"
-                   className="inline-block px-8 py-3 bg-gradient-gold text-white rounded font-medium shadow-lg shadow-gold/20 hover-lift transition-all"
-                 >
-                   Get Directions
-                 </a>
-               </motion.div>
-            </div>
           </div>
         </motion.div>
       </div>

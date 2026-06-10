@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import FeaturedZaaminProjects from "@/components/FeaturedZaaminProjects";
 import About from "@/components/About";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Services from "@/components/Services";
@@ -9,8 +10,8 @@ import FeaturedVideos from "@/components/FeaturedVideos";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Al Madina Developers | Real Estate & Property Developers in Zaamin City Lahore",
-  description: "Al Madina Developers helps clients explore residential plots, houses, rental properties, commercial properties, construction guidance, and investment opportunities in Zaamin City Lahore.",
+  title: "Al Madinah Developers | Zaamin City Projects Official Sales Partner",
+  description: "Explore Al-Madina Orchard and Al-Madina Garden with Al Madinah Developers, official sales partner of Zaamin City projects.",
 };
 
 export default function Home() {
@@ -19,22 +20,25 @@ export default function Home() {
       {/* 1. Hero Section */}
       <Hero />
 
-      {/* Featured Video Showcases */}
+      {/* 2. Featured Zaamin City Projects (Official Sales Partner Focus) */}
+      <FeaturedZaaminProjects />
+
+      {/* 3. Featured Video Showcases */}
       <FeaturedVideos />
 
-      {/* 2. Company Overview */}
+      {/* 4. Company Overview */}
       <About />
 
-      {/* 3. Featured Properties Preview */}
+      {/* 5. Featured Properties Preview */}
       <FeaturedProperties limit={3} />
 
-      {/* 4. Services Preview */}
+      {/* 6. Services Preview */}
       <Services />
 
-      {/* 5. Why Choose Us */}
+      {/* 7. Why Choose Us */}
       <WhyChooseUs />
 
-      {/* 6. Stats Section */}
+      {/* 8. Stats Section */}
       <section className="py-16 bg-navy text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-navy/95 to-[#1E293B] pointer-events-none"></div>
         <div className="container mx-auto px-4 max-w-7xl relative z-10">
@@ -59,10 +63,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. Investment Opportunities */}
+      {/* 9. Easy Booking & Installment Plans */}
       <InstallmentPlans />
 
-      {/* 8. Customer Trust Section */}
+      {/* 10. Customer Trust Section */}
       <section className="py-20 bg-white relative overflow-hidden border-t border-b border-gray-100">
         <div className="container mx-auto px-4 max-w-7xl text-center">
           <span className="text-gold font-semibold uppercase tracking-wider text-sm mb-2 block">
@@ -88,10 +92,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 9. Gallery Preview */}
+      {/* 11. Gallery Preview */}
       <Gallery limit={4} />
 
-      {/* 10. Contact CTA */}
+      {/* 12. Contact CTA */}
       <section className="py-20 bg-gradient-navy text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gold rounded-full opacity-5 blur-3xl pointer-events-none translate-x-1/2 -translate-y-1/2"></div>
         <div className="container mx-auto px-4 max-w-4xl text-center relative z-10">
@@ -107,7 +111,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link 
               href="/contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-gradient-gold text-white font-semibold rounded-md shadow-lg shadow-gold/20 hover-lift text-center"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-gradient-gold text-white font-semibold rounded-md shadow-lg shadow-gold/20 hover-lift text-center cursor-pointer"
             >
               Contact Us Now
             </Link>
@@ -115,7 +119,7 @@ export default function Home() {
               href="https://wa.me/923001332279?text=Hello%20Al%20Madina%20Developers%2C%20I%20am%20interested%20in%20your%20property%20services.%20Please%20share%20more%20details."
               target="_blank"
               rel="noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-white/10 text-white border border-white/20 font-semibold rounded-md hover:bg-white/20 shadow-sm transition-all hover-lift text-center"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-white/10 text-white border border-white/20 font-semibold rounded-md hover:bg-white/20 shadow-sm transition-all hover-lift text-center cursor-pointer"
             >
               WhatsApp Chat
             </a>

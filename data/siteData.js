@@ -284,14 +284,14 @@ export const siteData = {
         "All our projects and society dealings are fully LDA approved or legally verified, securing your hard-earned capital.",
     },
     {
-      title: "Official Sales Partner for Al-Madinah Orchard",
+      title: "Official Sales Partner",
       description:
-        "Al-Madinah Orchard by Zaamin City is our primary featured project, offering premium plots and high ROI potential.",
+        "Al Madinah Developers proudly serves as the official sales partner of Zaamin City projects, offering premium plots and direct rates.",
     },
     {
-      title: "Zaamin City Official Sales Partner",
+      title: "Zaamin City Specialization",
       description:
-        "As the official sales partner of Zaamin City projects, we provide exclusive inventory and best booking rates.",
+        "We specialize in Zaamin City Lahore developments, providing exclusive inventory and direct consults for plots and houses.",
     },
     {
       title: "5-Year Flexible Installments",

@@ -90,18 +90,18 @@ export default function FeaturedProperties({ limit, hideHeader = false }) {
                 Featured Property Opportunities
               </h2>
               <p className="text-gray-600 text-lg">
-                Explore selected property options, investment plans, and project updates from Al Madina Developers.
+                Explore selected property options, investment plans, and project updates from Al Madinah Developers.
               </p>
             </div>
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="https://wa.me/923001332279?text=Hello%20Al%20Madina%20Developers%2C%20I%20am%20interested%20in%20your%20property%20services.%20Please%20share%20more%20details."
+              href="https://wa.me/923001332279?text=Hello%20Al%20Madinah%20Developers%2C%20I%20am%20interested%20in%20your%20property%20listings.%20Please%20share%20details."
               target="_blank"
               rel="noreferrer"
               onClick={() => posthog?.capture('cta_clicked', { button_location: 'featured_properties', brand_name: 'Al Madina Developers' })}
               aria-label="Inquire on WhatsApp"
-              className="px-6 py-3 bg-gradient-navy text-white font-medium rounded-md hover:shadow-lg transition-all whitespace-nowrap cursor-pointer"
+              className="px-6 py-3.5 bg-gradient-navy text-white font-semibold rounded-md hover:shadow-lg transition-all whitespace-nowrap cursor-pointer text-sm"
             >
               Inquire on WhatsApp
             </motion.a>
@@ -123,7 +123,7 @@ export default function FeaturedProperties({ limit, hideHeader = false }) {
                 setSelectedCategory(pill);
                 posthog?.capture('filter_pills_clicked', { filter_value: pill, brand_name: 'Al Madina Developers' });
               }}
-              className={`px-4 py-2 rounded-full text-sm font-semibold transition-all cursor-pointer ${
+              className={`px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
                 selectedCategory === pill 
                   ? 'bg-gold text-white shadow-md' 
                   : 'bg-white text-gray-600 border border-gray-200 hover:border-gold hover:text-navy'
@@ -148,17 +148,17 @@ export default function FeaturedProperties({ limit, hideHeader = false }) {
               key={property.id} 
               className="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 hover:shadow-2xl transition-all duration-300 flex flex-col h-full group hover-lift-lg hover:border-gold/30"
             >
-              {/* Image Container with Badge */}
-              <div className="relative h-64 w-full bg-slate-50 p-2 overflow-hidden border-b border-gray-100">
+              {/* Image Container with Badge - Zameen Inspired */}
+              <div className="relative aspect-[16/10] w-full bg-slate-900 overflow-hidden border-b border-gray-100">
                 <Image
                   src={property.image}
                   alt={property.title}
                   fill
-                  className="object-contain group-hover:scale-[1.02] transition-transform duration-500"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <div className="absolute top-4 left-4 z-20">
-                  <span className="px-3 py-1 bg-gradient-gold text-white text-xs font-bold uppercase tracking-wider rounded shadow-md border border-white/20">
+                  <span className="px-3 py-1.5 bg-gradient-gold text-white text-[10px] font-bold uppercase tracking-wider rounded shadow-md border border-white/20">
                     {property.badge}
                   </span>
                 </div>
@@ -179,39 +179,40 @@ export default function FeaturedProperties({ limit, hideHeader = false }) {
                   {property.details}
                 </p>
                 
-                {/* Price highlight box */}
+                {/* Price block - Downpayment specs / call inquiries only, no fake pricing */}
                 <div className="mb-6 py-2.5 px-4 bg-gray-50 rounded-lg border border-gray-100 flex justify-between items-center">
                   <span className="text-xs text-gray-500 font-semibold uppercase">Pricing</span>
                   <span className="font-bold text-navy text-sm">{property.price}</span>
                 </div>
-
-                {/* Zameen-style Actions Bar */}
-                <div className="grid grid-cols-3 gap-2 mt-auto">
+                {/* Zameen-style Actions Bar - responsive layout to prevent mobile text overlap */}
+                <div className="flex flex-col sm:grid sm:grid-cols-3 gap-2 mt-auto">
                   <button
                     onClick={() => {
                       setSelectedProperty(property);
                       posthog?.capture('property_card_details_clicked', { property_title: property.title, brand_name: 'Al Madina Developers' });
                     }}
-                    className="py-2.5 bg-gray-100 text-navy font-semibold rounded text-xs hover:bg-navy hover:text-white transition-colors cursor-pointer text-center"
+                    className="w-full py-2.5 bg-gray-100 text-navy font-bold rounded text-xs hover:bg-navy hover:text-white transition-colors cursor-pointer text-center"
                   >
-                    Details
+                    View Details
                   </button>
-                  <a
-                    href={`tel:+92${contact.primaryNumber.replace(/\s+/g, "").replace(/^0/, "")}`}
-                    onClick={() => posthog?.capture('call_clicked', { button_location: 'property_card_homepage', property_title: property.title, brand_name: 'Al Madina Developers' })}
-                    className="py-2.5 bg-navy text-white font-semibold rounded text-xs hover:bg-gold transition-colors text-center flex items-center justify-center gap-1 cursor-pointer"
-                  >
-                    Call
-                  </a>
-                  <a
-                    href={`https://wa.me/92${contact.primaryWhatsApp.replace(/\s+/g, "").replace(/^0/, "")}?text=Hello%20Al%20Madina%20Developers%2C%20I%20am%20interested%20in%20inquiring%20about%20details%20for%20${encodeURIComponent(property.title)}.`}
-                    target="_blank"
-                    rel="noreferrer"
-                    onClick={() => posthog?.capture('whatsapp_clicked', { button_location: 'property_card_homepage', property_title: property.title, brand_name: 'Al Madina Developers' })}
-                    className="py-2.5 bg-[#25D366] text-white font-semibold rounded text-xs hover:bg-opacity-90 transition-all text-center flex items-center justify-center gap-1"
-                  >
-                    WhatsApp
-                  </a>
+                  <div className="grid grid-cols-2 gap-2 sm:contents">
+                    <a
+                      href={`tel:+92${contact.primaryNumber.replace(/\s+/g, "").replace(/^0/, "")}`}
+                      onClick={() => posthog?.capture('call_clicked', { button_location: 'property_card_homepage', property_title: property.title, brand_name: 'Al Madina Developers' })}
+                      className="py-2.5 bg-navy text-white font-bold rounded text-xs hover:bg-gold hover:text-white transition-colors text-center flex items-center justify-center gap-1 cursor-pointer"
+                    >
+                      Call
+                    </a>
+                    <a
+                      href={`https://wa.me/92${contact.primaryWhatsApp.replace(/\s+/g, "").replace(/^0/, "")}?text=Hello%20Al%20Madinah%20Developers%2C%20I%20am%20interested%20in%20inquiring%20about%20details%20for%20${encodeURIComponent(property.title)}.`}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={() => posthog?.capture('whatsapp_clicked', { button_location: 'property_card_homepage', property_title: property.title, brand_name: 'Al Madina Developers' })}
+                      className="py-2.5 bg-[#25D366] text-white font-bold rounded text-xs hover:bg-[#20ba5a] transition-all text-center flex items-center justify-center gap-1"
+                    >
+                      WhatsApp
+                    </a>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -222,7 +223,7 @@ export default function FeaturedProperties({ limit, hideHeader = false }) {
           <div className="text-center mt-12">
             <Link 
               href="/projects" 
-              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-navy text-white font-semibold rounded-md shadow-lg shadow-navy/20 hover-lift hover:scale-105 transition-all text-center cursor-pointer"
+              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-navy text-white font-bold rounded-md shadow-lg shadow-navy/20 hover-lift hover:scale-105 transition-all text-center cursor-pointer text-xs uppercase tracking-wider"
             >
               Explore All Properties
             </Link>
@@ -257,12 +258,12 @@ export default function FeaturedProperties({ limit, hideHeader = false }) {
               
               {/* Modal Body */}
               <div className="overflow-y-auto">
-                <div className="relative h-80 w-full bg-slate-100 p-2">
+                <div className="relative aspect-[16/10] w-full bg-slate-900">
                   <Image
                     src={selectedProperty.image}
                     alt={selectedProperty.title}
                     fill
-                    className="object-contain"
+                    className="object-cover"
                     sizes="(max-width: 768px) 100vw, 640px"
                   />
                 </div>
@@ -304,7 +305,7 @@ export default function FeaturedProperties({ limit, hideHeader = false }) {
                   {/* Actions */}
                   <div className="flex flex-col sm:flex-row gap-4">
                     <a
-                      href={`https://wa.me/923001332279?text=Hello%20Al%20Madina%20Developers%2C%20I%20am%20interested%20in%20inquiring%20about%20${encodeURIComponent(selectedProperty.title)}.`}
+                      href={`https://wa.me/923001332279?text=Hello%20Al%20Madinah%20Developers%2C%20I%20am%20interested%20in%20inquiring%20about%20${encodeURIComponent(selectedProperty.title)}.`}
                       target="_blank"
                       rel="noreferrer"
                       className="flex-1 py-3.5 bg-[#25D366] text-white text-center font-semibold rounded-md shadow-lg shadow-[#25D366]/20 hover-lift text-sm cursor-pointer"

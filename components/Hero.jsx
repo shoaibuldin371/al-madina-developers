@@ -8,7 +8,6 @@ import { motion } from "framer-motion";
 import { usePostHog } from 'posthog-js/react';
 
 export default function Hero() {
-  const { hero } = siteData;
   const router = useRouter();
   const posthog = usePostHog();
 
@@ -59,29 +58,32 @@ export default function Hero() {
   return (
     <section 
       id="home" 
-      className="relative w-full min-h-[80vh] lg:min-h-[90vh] flex items-center justify-center overflow-hidden py-16 md:py-24 lg:py-28 bg-navy text-white animate-fade-in"
+      className="relative w-full min-h-[85vh] lg:min-h-[90vh] flex items-center justify-center overflow-hidden py-16 md:py-24 lg:py-28 bg-navy text-white"
     >
       {/* Background image & overlay constraints */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        {/* On mobile: background is the hero image. On desktop: background is solid navy and the image is on the right side */}
-        <div className="absolute inset-0 w-full h-full transform scale-105 opacity-30 lg:opacity-0 transition-opacity duration-500">
+        {/* Mobile Background Image (dimmed) */}
+        <div className="absolute inset-0 w-full h-full transform scale-105 opacity-25 lg:opacity-0 transition-opacity duration-500">
           <Image 
-            src={hero.image}
-            alt="Al Madinah Developers background banner"
+            src="/assets/al-madinah/developers.png"
+            alt="Al Madinah Developers premium real estate"
             fill
             className="object-cover object-center"
             sizes="100vw"
             priority
           />
         </div>
-        <div className="absolute inset-0 bg-navy/90 backdrop-blur-[1px] lg:hidden"></div>
         
+        {/* Solid / Gradient backdrop overlay for text contrast */}
+        <div className="absolute inset-0 bg-[#070b14]/90 backdrop-blur-[1px] lg:hidden"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/95 to-transparent hidden lg:block z-10 pointer-events-none"></div>
+
         {/* Decorative subtle orbs in background */}
         <div className="absolute top-0 left-0 w-96 h-96 bg-gold rounded-full opacity-5 blur-3xl pointer-events-none -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 right-1/3 w-96 h-96 bg-white rounded-full opacity-5 blur-3xl pointer-events-none translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-1/3 w-[600px] h-[600px] bg-gold rounded-full opacity-5 blur-3xl pointer-events-none translate-y-1/2"></div>
       </div>
 
-      <div className="container relative z-10 mx-auto px-4 max-w-7xl">
+      <div className="container relative z-20 mx-auto px-4 max-w-7xl">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Text & Search Widget */}
@@ -91,20 +93,29 @@ export default function Hero() {
             animate="visible"
             className="w-full lg:w-7/12 text-center lg:text-left flex flex-col items-center lg:items-start"
           >
-            {/* Tagline */}
-            <motion.span 
+            {/* Tagline / Trust Badges */}
+            <motion.div 
               variants={itemVariants}
-              className="inline-block py-1.5 px-4 rounded-full bg-gold/15 text-gold border border-gold/30 text-xs font-semibold tracking-widest uppercase mb-4"
+              className="flex flex-wrap gap-2.5 mb-6 justify-center lg:justify-start"
             >
-              Real Estate Development & Consultation
-            </motion.span>
+              {[
+                "Zaamin City Sales Partner",
+                "LDA Approved Projects",
+                "Flexible Installment Options"
+              ].map((badge, idx) => (
+                <div key={idx} className="flex items-center space-x-1.5 py-1.5 px-3.5 rounded-full bg-gold/15 text-gold border border-gold/30 text-[10px] md:text-xs font-bold uppercase tracking-wider shadow-sm">
+                  <span className="text-gold font-bold">✓</span>
+                  <span>{badge}</span>
+                </div>
+              ))}
+            </motion.div>
             
             {/* Main Title */}
             <motion.h1 
               variants={itemVariants}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight mb-4 max-w-2xl"
             >
-              {hero.heading}
+              Find Your Dream Property With <span className="text-gradient">Al Madinah Developers</span>
             </motion.h1>
             
             {/* Subheading */}
@@ -112,7 +123,7 @@ export default function Hero() {
               variants={itemVariants}
               className="text-sm sm:text-base md:text-lg text-gray-300 mb-8 max-w-xl font-light leading-relaxed"
             >
-              {hero.subheading}
+              Official Sales Partner of Zaamin City Projects. Explore trusted opportunities in Al-Madina Orchard and Al-Madina Garden.
             </motion.p>
 
             {/* CTA Buttons Row */}
@@ -122,13 +133,13 @@ export default function Hero() {
             >
               <Link 
                 href="/projects"
-                className="px-6 py-3 bg-gradient-gold text-white font-bold rounded-lg shadow-lg shadow-gold/20 hover:shadow-gold/40 hover-lift text-center text-sm uppercase tracking-wider min-w-[170px]"
+                className="px-8 py-3.5 bg-gradient-gold text-white font-bold rounded-lg shadow-lg shadow-gold/20 hover:shadow-gold/40 hover-lift text-center text-xs uppercase tracking-wider min-w-[170px] cursor-pointer"
               >
-                Explore Properties
+                Explore Projects
               </Link>
               <Link 
                 href="/contact"
-                className="px-6 py-3 bg-transparent text-white border-2 border-white/20 hover:border-gold hover:text-gold rounded-lg hover-lift text-center text-sm font-semibold uppercase tracking-wider min-w-[170px]"
+                className="px-8 py-3.5 bg-transparent text-white border-2 border-white/20 hover:border-gold hover:text-gold rounded-lg hover-lift text-center text-xs font-bold uppercase tracking-wider min-w-[170px] cursor-pointer"
               >
                 Contact Us
               </Link>
@@ -140,7 +151,7 @@ export default function Hero() {
               className="w-full text-left"
             >
               {/* Tabs */}
-              <div className="flex space-x-1 mb-0.5 max-w-xs bg-navy/60 backdrop-blur-md rounded-t-xl p-1.5 border border-white/10 border-b-0">
+              <div className="flex space-x-1 mb-0.5 max-w-xs bg-navy/80 backdrop-blur-md rounded-t-xl p-1.5 border border-white/10 border-b-0">
                 <button
                   onClick={() => setActiveTab("buy")}
                   className={`flex-1 py-2 px-4 rounded-lg text-[10px] md:text-xs font-bold tracking-widest uppercase transition-all cursor-pointer ${
@@ -217,7 +228,7 @@ export default function Hero() {
                 {/* Search Button */}
                 <button
                   onClick={handleSearch}
-                  className="w-full md:w-auto px-6 py-3 bg-gradient-navy hover:bg-gold text-white font-bold rounded-lg shadow-lg hover-lift flex items-center justify-center gap-1.5 cursor-pointer transition-all text-xs uppercase tracking-wider"
+                  className="w-full md:w-auto px-6 py-3.5 bg-gradient-navy hover:bg-gold text-white font-bold rounded-lg shadow-lg hover-lift flex items-center justify-center gap-1.5 cursor-pointer transition-all text-xs uppercase tracking-wider"
                 >
                   <svg className="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -228,26 +239,26 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right Column: Clean Premium Hero Image Visuals (hidden on mobile, split on desktop) */}
+          {/* Right Column: Premium Hero Image Side (hidden on mobile, split on desktop) */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, x: 30 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
-            className="hidden lg:block lg:w-5/12 w-full animate-float"
+            className="hidden lg:block lg:w-5/12 w-full animate-float relative"
           >
-            <div className="relative w-full h-[520px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 group bg-navy">
-              {/* Subtle hover zoom */}
-              <div className="absolute inset-0 bg-gold/5 group-hover:bg-gold/0 transition-all duration-500 z-10 pointer-events-none"></div>
+            {/* Elegant luxury overlay borders */}
+            <div className="absolute -inset-2 bg-gradient-to-tr from-gold/30 to-white/5 rounded-[40px] blur-sm pointer-events-none"></div>
+            <div className="relative w-full h-[540px] rounded-[32px] overflow-hidden shadow-2xl border-4 border-white/10 group bg-navy">
+              <div className="absolute inset-0 bg-navy/10 group-hover:bg-navy/0 transition-all duration-500 z-10 pointer-events-none"></div>
               <Image 
-                src={hero.image}
+                src="/assets/al-madinah/developers.png"
                 alt="Al Madinah Developers Premium Real Estate"
                 fill
                 priority
-                className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                sizes="(max-width: 1024px) 100vw, 500px"
+                className="object-cover object-center group-hover:scale-[1.03] transition-transform duration-700"
+                sizes="(max-width: 1024px) 100vw, 550px"
               />
-              {/* Subtle overlay accent */}
-              <div className="absolute inset-0 bg-gradient-to-t from-navy/35 to-transparent pointer-events-none z-10"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/40 via-transparent to-transparent pointer-events-none z-15"></div>
             </div>
           </motion.div>
 
@@ -255,7 +266,7 @@ export default function Hero() {
       </div>
       
       {/* Section Divider Accent */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent pointer-events-none z-0"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 to-transparent pointer-events-none z-10"></div>
     </section>
   );
 }

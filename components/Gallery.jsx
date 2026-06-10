@@ -102,13 +102,13 @@ export default function Gallery({ limit, hideHeader = false }) {
           </motion.div>
         )}
 
-        {/* Dynamic Grid Layout */}
+        {/* Dynamic Grid Layout - responsive 2 columns on mobile */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
           key={activeCategory} // Reset animation when tab changes
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[250px]"
+          className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 auto-rows-[140px] sm:auto-rows-[200px] md:auto-rows-[250px]"
         >
           {displayedImages.map((img, index) => {
             // Make some items span 2 rows or 2 cols to create a dynamic masonry-style grid

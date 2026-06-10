@@ -12,26 +12,26 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 
 export const metadata = {
-  title: "Al Madina Developers | Real Estate & Property Developers in Zaamin City Lahore",
-  description: "Al Madina Developers helps clients explore residential plots, houses, rental properties, commercial properties, construction guidance, and investment opportunities in Zaamin City Lahore.",
+  title: "Al Madinah Developers | Zaamin City Projects Official Sales Partner",
+  description: "Explore Al-Madina Orchard and Al-Madina Garden with Al Madinah Developers, official sales partner of Zaamin City projects.",
   keywords: "Al Madina Developers, Al Madina real estate, Zaamin City Lahore, Zaamin City plots, Real estate in Zaamin City Lahore, Property dealers in Lahore, 5 Marla plots Zaamin City, Houses for rent in Zaamin City, Commercial property Lahore, Property investment Lahore, Real estate developers Lahore, Property developers Lahore, Zaamin City property dealers",
-  authors: [{ name: "Al Madina Developers" }],
+  authors: [{ name: "Al Madinah Developers" }],
   robots: "index, follow",
   metadataBase: new URL("https://al-madina-developers.vercel.app"),
   alternates: {
     canonical: "https://al-madina-developers.vercel.app",
   },
   openGraph: {
-    title: "Al Madina Developers",
-    description: "Explore residential plots, houses, rental properties, commercial opportunities, and investment options in Zaamin City Lahore with Al Madina Developers.",
+    title: "Al Madinah Developers | Zaamin City Projects Official Sales Partner",
+    description: "Explore Al-Madina Orchard and Al-Madina Garden with Al Madinah Developers, official sales partner of Zaamin City projects.",
     images: ["/assets/al-madinah/logo.jpg"],
     url: "https://al-madina-developers.vercel.app",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Al Madina Developers",
-    description: "Explore residential plots, houses, rental properties, commercial opportunities, and investment options in Zaamin City Lahore with Al Madina Developers.",
+    title: "Al Madinah Developers | Zaamin City Projects Official Sales Partner",
+    description: "Explore Al-Madina Orchard and Al-Madina Garden with Al Madinah Developers, official sales partner of Zaamin City projects.",
     images: ["/assets/al-madinah/logo.jpg"],
   },
   icons: {

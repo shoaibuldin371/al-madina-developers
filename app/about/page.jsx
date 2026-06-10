@@ -95,7 +95,7 @@ export default function AboutPage() {
             
             <div className="lg:w-1/2 relative w-full h-[400px] rounded-3xl overflow-hidden shadow-2xl border-4 border-gray-100">
               <Image 
-                src="/assets/al-madinah/Al-madinah.png"
+                src="/assets/al-madinah/office-building.jpg"
                 alt="Al Madina Developers Headquarters"
                 fill
                 className="object-cover"

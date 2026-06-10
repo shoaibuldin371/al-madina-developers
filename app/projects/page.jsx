@@ -127,7 +127,7 @@ function ProjectsPageContent() {
               <select
                 value={purpose}
                 onChange={(e) => setPurpose(e.target.value)}
-                className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-navy font-semibold outline-none focus:border-gold text-xs cursor-pointer appearance-none"
+                className="w-full px-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-navy font-semibold outline-none focus:border-gold text-xs cursor-pointer appearance-none"
                 style={{ backgroundImage: "url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath stroke='%230F172A' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E\")", backgroundPosition: "right 0.75rem center", backgroundSize: "1em", backgroundRepeat: "no-repeat" }}
               >
                 <option value="all">All Purpose</option>
@@ -142,7 +142,7 @@ function ProjectsPageContent() {
               <select
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
-                className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-navy font-semibold outline-none focus:border-gold text-xs cursor-pointer appearance-none"
+                className="w-full px-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-navy font-semibold outline-none focus:border-gold text-xs cursor-pointer appearance-none"
                 style={{ backgroundImage: "url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath stroke='%230F172A' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E\")", backgroundPosition: "right 0.75rem center", backgroundSize: "1em", backgroundRepeat: "no-repeat" }}
               >
                 <option value="all">All Locations</option>
@@ -157,7 +157,7 @@ function ProjectsPageContent() {
               <select
                 value={propertyType}
                 onChange={(e) => setPropertyType(e.target.value)}
-                className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-navy font-semibold outline-none focus:border-gold text-xs cursor-pointer appearance-none"
+                className="w-full px-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-navy font-semibold outline-none focus:border-gold text-xs cursor-pointer appearance-none"
                 style={{ backgroundImage: "url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath stroke='%230F172A' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E\")", backgroundPosition: "right 0.75rem center", backgroundSize: "1em", backgroundRepeat: "no-repeat" }}
               >
                 <option value="all">All Types</option>
@@ -173,7 +173,7 @@ function ProjectsPageContent() {
               <select
                 value={priceRange}
                 onChange={(e) => setPriceRange(e.target.value)}
-                className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-navy font-semibold outline-none focus:border-gold text-xs cursor-pointer appearance-none"
+                className="w-full px-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-navy font-semibold outline-none focus:border-gold text-xs cursor-pointer appearance-none"
                 style={{ backgroundImage: "url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath stroke='%230F172A' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E\")", backgroundPosition: "right 0.75rem center", backgroundSize: "1em", backgroundRepeat: "no-repeat" }}
               >
                 <option value="all">All Prices</option>
@@ -194,7 +194,7 @@ function ProjectsPageContent() {
                   setPropertyType("all");
                   setPriceRange("all");
                 }}
-                className="w-full py-2 bg-gray-100 text-navy font-bold rounded-lg text-xs hover:bg-gold hover:text-white transition-colors cursor-pointer text-center"
+                className="w-full py-2.5 bg-gray-100 text-navy font-bold rounded-lg text-xs hover:bg-gold hover:text-white transition-colors cursor-pointer text-center"
               >
                 Reset Filters
               </button>
@@ -206,7 +206,7 @@ function ProjectsPageContent() {
       {/* Listings Grid */}
       <section className="py-16 bg-gray-50 min-h-[50vh]">
         <div className="container mx-auto px-4 max-w-7xl">
-          <div className="text-xs text-gray-500 font-semibold mb-6 uppercase tracking-wider">
+          <div className="text-xs text-gray-500 font-bold mb-6 uppercase tracking-wider">
             Showing {filteredProperties.length} active listings matching criteria
           </div>
 
@@ -220,7 +220,7 @@ function ProjectsPageContent() {
                   setPropertyType("all");
                   setPriceRange("all");
                 }}
-                className="mt-4 px-6 py-2 bg-navy text-white rounded font-semibold text-xs hover:bg-gold transition-colors cursor-pointer"
+                className="mt-4 px-6 py-2.5 bg-navy text-white rounded font-bold text-xs hover:bg-gold transition-colors cursor-pointer"
               >
                 Reset All Filters
               </button>
@@ -233,16 +233,16 @@ function ProjectsPageContent() {
                   className="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 hover:shadow-2xl transition-all duration-300 flex flex-col h-full group hover-lift hover:border-gold/20"
                 >
                   {/* Property Image */}
-                  <div className="relative h-64 w-full bg-slate-50 p-2 overflow-hidden border-b border-gray-100">
+                  <div className="relative aspect-[16/10] w-full bg-slate-900 overflow-hidden border-b border-gray-100">
                     <Image
                       src={property.image}
                       alt={property.title}
                       fill
-                      className="object-contain group-hover:scale-[1.02] transition-transform duration-500"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
                     <div className="absolute top-4 left-4 z-20">
-                      <span className="px-3 py-1 bg-gradient-gold text-white text-xs font-bold uppercase tracking-wider rounded shadow-md border border-white/20">
+                      <span className="px-3 py-1.5 bg-gradient-gold text-white text-[10px] font-bold uppercase tracking-wider rounded shadow-md border border-white/20">
                         {property.badge}
                       </span>
                     </div>
@@ -269,33 +269,35 @@ function ProjectsPageContent() {
                       <span className="font-bold text-navy text-sm">{property.price}</span>
                     </div>
 
-                    {/* Zameen-style Actions Bar */}
-                    <div className="grid grid-cols-3 gap-2 mt-auto">
+                    {/* Zameen-style Actions Bar - responsive layout to prevent mobile text overlap */}
+                    <div className="flex flex-col sm:grid sm:grid-cols-3 gap-2 mt-auto">
                       <button
                         onClick={() => {
                           setSelectedProperty(property);
                           posthog?.capture('property_card_details_clicked', { property_title: property.title, brand_name: 'Al Madina Developers' });
                         }}
-                        className="py-2.5 bg-gray-100 text-navy font-semibold rounded text-xs hover:bg-navy hover:text-white transition-colors cursor-pointer text-center"
+                        className="w-full py-2.5 bg-gray-100 text-navy font-bold rounded text-xs hover:bg-navy hover:text-white transition-colors cursor-pointer text-center"
                       >
-                        Details
+                        View Details
                       </button>
-                      <a
-                        href={`tel:+92${contact.primaryNumber.replace(/\s+/g, "").replace(/^0/, "")}`}
-                        onClick={() => posthog?.capture('call_clicked', { button_location: 'property_card_projects_page', property_title: property.title, brand_name: 'Al Madina Developers' })}
-                        className="py-2.5 bg-navy text-white font-semibold rounded text-xs hover:bg-gold transition-colors text-center flex items-center justify-center gap-1 cursor-pointer"
-                      >
-                        Call
-                      </a>
-                      <a
-                        href={`https://wa.me/92${contact.primaryWhatsApp.replace(/\s+/g, "").replace(/^0/, "")}?text=Hello%20Al%20Madina%20Developers%2C%20I%20am%20interested%20in%20inquiring%20about%20details%20for%20${encodeURIComponent(property.title)}.`}
-                        target="_blank"
-                        rel="noreferrer"
-                        onClick={() => posthog?.capture('whatsapp_clicked', { button_location: 'property_card_projects_page', property_title: property.title, brand_name: 'Al Madina Developers' })}
-                        className="py-2.5 bg-[#25D366] text-white font-semibold rounded text-xs hover:bg-opacity-95 transition-all text-center flex items-center justify-center gap-1"
-                      >
-                        WhatsApp
-                      </a>
+                      <div className="grid grid-cols-2 gap-2 sm:contents">
+                        <a
+                          href={`tel:+92${contact.primaryNumber.replace(/\s+/g, "").replace(/^0/, "")}`}
+                          onClick={() => posthog?.capture('call_clicked', { button_location: 'property_card_projects_page', property_title: property.title, brand_name: 'Al Madina Developers' })}
+                          className="py-2.5 bg-navy text-white font-bold rounded text-xs hover:bg-gold transition-colors text-center flex items-center justify-center gap-1 cursor-pointer"
+                        >
+                          Call
+                        </a>
+                        <a
+                          href={`https://wa.me/92${contact.primaryWhatsApp.replace(/\s+/g, "").replace(/^0/, "")}?text=Hello%20Al%20Madinah%20Developers%2C%20I%20am%20interested%20in%20inquiring%20about%20details%20for%20${encodeURIComponent(property.title)}.`}
+                          target="_blank"
+                          rel="noreferrer"
+                          onClick={() => posthog?.capture('whatsapp_clicked', { button_location: 'property_card_projects_page', property_title: property.title, brand_name: 'Al Madina Developers' })}
+                          className="py-2.5 bg-[#25D366] text-white font-bold rounded text-xs hover:bg-[#20ba5a] transition-all text-center flex items-center justify-center gap-1"
+                        >
+                          WhatsApp
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -316,7 +318,7 @@ function ProjectsPageContent() {
               Why Invest in Our Listings?
             </h2>
             <p className="text-gray-600 text-lg">
-              Al Madina Developers focuses on premium plots offering high ROI, secure titles, and superior local development.
+              Al Madinah Developers focuses on premium plots offering high ROI, secure titles, and superior local development.
             </p>
           </div>
 
@@ -370,12 +372,12 @@ function ProjectsPageContent() {
               
               {/* Modal Body */}
               <div className="overflow-y-auto">
-                <div className="relative h-80 w-full bg-slate-100 p-2">
+                <div className="relative aspect-[16/10] w-full bg-slate-900">
                   <Image
                     src={selectedProperty.image}
                     alt={selectedProperty.title}
                     fill
-                    className="object-contain"
+                    className="object-cover"
                     sizes="(max-width: 768px) 100vw, 640px"
                   />
                 </div>
@@ -417,7 +419,7 @@ function ProjectsPageContent() {
                   {/* Actions */}
                   <div className="flex flex-col sm:flex-row gap-4">
                     <a
-                      href={`https://wa.me/923001332279?text=Hello%20Al%20Madina%20Developers%2C%20I%20am%20interested%20in%20inquiring%20about%20${encodeURIComponent(selectedProperty.title)}.`}
+                      href={`https://wa.me/923001332279?text=Hello%20Al%20Madinah%20Developers%2C%20I%20am%20interested%20in%20inquiring%20about%20${encodeURIComponent(selectedProperty.title)}.`}
                       target="_blank"
                       rel="noreferrer"
                       className="flex-1 py-3.5 bg-[#25D366] text-white text-center font-semibold rounded-md shadow-lg shadow-[#25D366]/20 hover-lift text-sm cursor-pointer"

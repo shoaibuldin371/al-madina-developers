@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { usePostHog } from 'posthog-js/react';
 import { BuildingOffice2Icon, ArrowRightIcon } from "@heroicons/react/24/outline";
@@ -9,20 +10,26 @@ export default function FeaturedZaaminProjects() {
 
   const projects = [
     {
-      title: "Al-Madinah Orchard by Zaamin City",
+      title: "Al-Madina Orchard",
       label: "Primary Featured Project",
-      description: "Developed by Zaamin City. Al Madina Developers proudly serves as the official sales partner.",
-      badge: "Primary Focus",
+      developer: "Developed by Zaamin City",
+      description: "Developed by Zaamin City. Al Madinah Developers proudly serves as the official sales partner.",
+      location: "Kasur Bypass, Kasur",
+      badge: "Primary Featured Project",
+      image: "/assets/al-madinah/472097917_122122903346595661_5990143530882313701_n.jpg",
       link: "/projects?location=kasur&type=plot",
-      whatsappText: "Hello Al Madina Developers, I am interested in inquiring about Al-Madinah Orchard by Zaamin City.",
+      whatsappText: "Hello Al Madinah Developers, I am interested in inquiring about Al-Madina Orchard by Zaamin City.",
     },
     {
-      title: "Al-Madinah Gardens by Zaamin City",
+      title: "Al-Madina Garden",
       label: "Second Featured Project",
-      description: "Developed by Zaamin City. Al Madina Developers proudly serves as the official sales partner.",
-      badge: "Second Priority",
+      developer: "Developed by Zaamin City",
+      description: "Developed by Zaamin City. Al Madinah Developers proudly serves as the official sales partner.",
+      location: "Main Bypass, Kasur",
+      badge: "Second Featured Project",
+      image: "/assets/al-madinah/480162649_122128096406595661_7555021955625685651_n.jpg",
       link: "/projects?location=kasur&type=plot",
-      whatsappText: "Hello Al Madina Developers, I am interested in inquiring about Al-Madinah Gardens by Zaamin City.",
+      whatsappText: "Hello Al Madinah Developers, I am interested in inquiring about Al-Madina Garden by Zaamin City.",
     },
   ];
 
@@ -41,7 +48,7 @@ export default function FeaturedZaaminProjects() {
           <div className="flex items-center justify-center space-x-2 mb-4">
             <span className="w-12 h-[2px] bg-gold"></span>
             <span className="text-gold font-semibold uppercase tracking-wider text-sm">
-              Official Sales Partner of Zaamin City Projects
+              Featured Zaamin City Projects
             </span>
             <span className="w-12 h-[2px] bg-gold"></span>
           </div>
@@ -49,11 +56,11 @@ export default function FeaturedZaaminProjects() {
             Featured Zaamin City Projects
           </h2>
           <p className="text-gray-600 text-lg leading-relaxed">
-            Discover premier gated community living developed by Zaamin City. Al Madina Developers is the official sales partner offering prime residential plots and booking rates.
+            Al Madinah Developers proudly serves as the official sales partner of Zaamin City projects, offering premium gated residential plots and installment rates.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
           {projects.map((project, idx) => (
             <motion.div
               initial={{ opacity: 0, y: 40 }}
@@ -61,47 +68,71 @@ export default function FeaturedZaaminProjects() {
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: idx * 0.15 }}
               key={idx}
-              className="bg-navy rounded-3xl p-8 md:p-10 text-white flex flex-col justify-between h-full relative overflow-hidden group hover-lift border border-white/10 shadow-xl"
+              className="bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 flex flex-col hover-lift-lg group"
             >
-              {/* Gold border accent on hover */}
-              <div className="absolute inset-0 border-2 border-transparent group-hover:border-gold/30 rounded-3xl transition-colors duration-300 pointer-events-none"></div>
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-bl-[100px] pointer-events-none group-hover:scale-110 transition-transform"></div>
-              
-              <div>
-                <div className="flex justify-between items-start mb-6">
-                  <span className="px-3.5 py-1.5 bg-gold/20 text-gold text-xs font-bold uppercase tracking-wider rounded border border-gold/30">
-                    {project.label}
+              {/* Image Container with Badge */}
+              <div className="relative h-64 sm:h-72 w-full bg-slate-100 overflow-hidden">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 768px) 100vw, 500px"
+                  priority
+                />
+                
+                {/* Floating Badges */}
+                <div className="absolute top-4 left-4 z-20 flex flex-col gap-2">
+                  <span className="px-3 py-1.5 bg-gradient-gold text-white text-xs font-bold uppercase tracking-wider rounded shadow-md border border-white/20">
+                    {project.badge}
                   </span>
-                  <BuildingOffice2Icon className="w-8 h-8 text-gold" />
+                  <span className="px-3 py-1 bg-navy text-white text-[10px] font-bold uppercase tracking-wider rounded shadow-md w-max border border-white/10">
+                    Official Sales Partner
+                  </span>
+                </div>
+              </div>
+
+              {/* Details Content */}
+              <div className="p-8 flex flex-col flex-grow">
+                <div className="flex justify-between items-center mb-3">
+                  <span className="text-xs font-bold text-gold uppercase tracking-wider">
+                    {project.developer}
+                  </span>
+                  <BuildingOffice2Icon className="w-5 h-5 text-gold" />
                 </div>
 
-                <h3 className="text-2xl md:text-3xl font-bold font-serif mb-4 text-white group-hover:text-gold transition-colors duration-300">
+                <h3 className="text-2xl font-bold font-serif text-navy mb-2 group-hover:text-gold transition-colors duration-300">
                   {project.title}
                 </h3>
                 
-                <p className="text-gray-300 leading-relaxed mb-8 text-sm md:text-base font-light">
+                <p className="text-xs text-gray-500 mb-4 flex items-center">
+                  📍 {project.location}
+                </p>
+
+                <p className="text-gray-600 leading-relaxed mb-8 text-sm font-light">
                   {project.description}
                 </p>
-              </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 border-t border-white/10 pt-6 mt-auto">
-                <Link
-                  href={project.link}
-                  onClick={() => posthog?.capture('project_details_clicked', { project_title: project.title, brand_name: 'Al Madina Developers' })}
-                  className="flex-1 inline-flex items-center justify-center px-6 py-3 bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold rounded-md transition-all text-center text-sm group/btn hover-lift"
-                >
-                  View Inventory
-                  <ArrowRightIcon className="w-4 h-4 ml-2 text-gold group-hover/btn:translate-x-1 transition-transform" />
-                </Link>
-                <a
-                  href={`https://wa.me/923001332279?text=${encodeURIComponent(project.whatsappText)}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={() => posthog?.capture('whatsapp_clicked', { button_location: 'featured_zaamin_projects', project_title: project.title, brand_name: 'Al Madina Developers' })}
-                  className="flex-1 inline-flex items-center justify-center px-6 py-3 bg-gradient-gold hover:shadow-gold/20 text-white font-semibold rounded-md transition-all text-center text-sm hover-lift"
-                >
-                  WhatsApp Booking
-                </a>
+                {/* Zameen-style Actions */}
+                <div className="flex flex-col sm:flex-row gap-3 mt-auto pt-4 border-t border-gray-50">
+                  <Link
+                    href={project.link}
+                    onClick={() => posthog?.capture('project_details_clicked', { project_title: project.title, brand_name: 'Al Madina Developers' })}
+                    className="flex-1 inline-flex items-center justify-center px-6 py-3 bg-navy hover:bg-gold text-white font-semibold rounded-lg transition-colors text-center text-xs uppercase tracking-wider group/btn cursor-pointer shadow-sm"
+                  >
+                    View Details
+                    <ArrowRightIcon className="w-3.5 h-3.5 ml-2 text-gold group-hover/btn:translate-x-1 transition-transform" />
+                  </Link>
+                  <a
+                    href={`https://wa.me/923001332279?text=${encodeURIComponent(project.whatsappText)}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={() => posthog?.capture('whatsapp_clicked', { button_location: 'featured_zaamin_projects', project_title: project.title, brand_name: 'Al Madina Developers' })}
+                    className="flex-1 inline-flex items-center justify-center px-6 py-3 bg-[#25D366] hover:bg-[#20ba5a] text-white font-semibold rounded-lg transition-colors text-center text-xs uppercase tracking-wider cursor-pointer shadow-sm"
+                  >
+                    WhatsApp Inquiry
+                  </a>
+                </div>
               </div>
             </motion.div>
           ))}
